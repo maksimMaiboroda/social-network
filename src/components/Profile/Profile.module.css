@@ -1,0 +1,4 @@
+.content {
+    grid-area: page-content;
+    background-color: darkgray;
+}
