@@ -4,17 +4,10 @@ import Posts from "./Posts/Posts";
 
 const MyPosts = () => {
   return (
-    <div>
+    <div className={classes.myPosts}>
       My posts
       <div>New post</div>
       <div className={classes.posts}>
-        <Posts />
-        <Posts />
-        <Posts />
-        <Posts />
-        <Posts />
-        <Posts />
-        <Posts />
         <Posts />
       </div>
     </div>

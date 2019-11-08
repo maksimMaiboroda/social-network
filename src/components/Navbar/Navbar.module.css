@@ -1,8 +1,17 @@
 .nav {
   grid-area: nav;
-  background-color: cornflowerblue;
+  background-color: rgb(35, 157, 194);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
-.item {
-  color: white;
+.linkItem {
+  text-decoration: none;
+  display: block;
+  color: rgb(255, 255, 255);
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid rgb(52, 179, 218);
+  border-radius: 10px;
+  text-align: center;
 }
