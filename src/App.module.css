@@ -16,3 +16,10 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
 }
+
+.appWrapperContent {
+  grid-area: page-content;
+  border-radius: 10px;
+  background-color: rgb(35, 157, 194);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

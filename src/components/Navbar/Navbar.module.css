@@ -15,3 +15,7 @@
   border-radius: 10px;
   text-align: center;
 }
+
+.nav a.activeLink {
+  color: gold;
+}
