@@ -1,87 +1,29 @@
 import React from "react";
 import classes from "./Dialogs.module.css";
+import { NavLink } from "react-router-dom";
+import UserItem from "./UserItem/UserItem";
+import UserMessageItem from "./UserMessageItem/UserMessageItem";
 
-const Dialogs = () => {
+const Dialogs = (props) => { 
+  
+ 
+  let newDialogsData = props.state.oldDialogsData.map(user => (
+    <UserItem
+      urlD={user.urlD}
+      userAva={user.userAva}
+      userName={user.userName}
+    />
+  ));
+
+  let newMessageData = props.state.oldMessageData.map(massage => (
+    <UserMessageItem messageText={massage.messageText} id={massage.id} />
+  ));
+
   return (
     <div className={classes.dialogs}>
-      <div className={classes.user__list}>
-        <div className={classes.user__item + " " + classes.active}>
-          <div className={classes.user__ava}>img</div>
-          <div className={classes.user__name}>Viktor</div>
-        </div>
+      <div className={classes.user__list}>{newDialogsData}</div>
 
-        <div className={classes.user__item}>
-          <div className={classes.user__ava}>img</div>
-          <div className={classes.user__name}>Viktor</div>
-        </div>
-
-        <div className={classes.user__item}>
-          <div className={classes.user__ava}>img</div>
-          <div className={classes.user__name}>Viktor</div>
-        </div>
-
-        <div className={classes.user__item}>
-          <div className={classes.user__ava}>img</div>
-          <div className={classes.user__name}>Viktor</div>
-        </div>
-
-        <div className={classes.user__item}>
-          <div className={classes.user__ava}>img</div>
-          <div className={classes.user__name}>Viktor</div>
-        </div>
-
-        <div className={classes.user__item}>
-          <div className={classes.user__ava}>img</div>
-          <div className={classes.user__name}>Viktor</div>
-        </div>
-      </div>
-
-      <div className={classes.massage__list}>
-        <div className={classes.massage__item}>
-          <div className={classes.text}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
-            nisi? Perferendis harum pariatur quos delectus quia quasi quisquam
-            repellendus, distinctio odit repudiandae voluptate optio veniam odio
-            quo ex adipisci fugiat.
-          </div>
-        </div>
-
-        <div className={classes.massage__item}>
-          <div className={classes.text}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
-            nisi? Perferendis harum pariatur quos delectus quia quasi quisquam
-            repellendus, distinctio odit repudiandae voluptate optio veniam odio
-            quo ex adipisci fugiat.
-          </div>
-        </div>
-
-        <div className={classes.massage__item}>
-          <div className={classes.text}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
-            nisi? Perferendis harum pariatur quos delectus quia quasi quisquam
-            repellendus, distinctio odit repudiandae voluptate optio veniam odio
-            quo ex adipisci fugiat.
-          </div>
-        </div>
-
-        <div className={classes.massage__item}>
-          <div className={classes.text}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
-            nisi? Perferendis harum pariatur quos delectus quia quasi quisquam
-            repellendus, distinctio odit repudiandae voluptate optio veniam odio
-            quo ex adipisci fugiat.
-          </div>
-        </div>
-
-        <div className={classes.massage__item}>
-          <div className={classes.text}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
-            nisi? Perferendis harum pariatur quos delectus quia quasi quisquam
-            repellendus, distinctio odit repudiandae voluptate optio veniam odio
-            quo ex adipisci fugiat.
-          </div>
-        </div>
-      </div>
+      <div className={classes.massage__list}>{newMessageData}</div>
     </div>
   );
 };

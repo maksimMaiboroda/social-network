@@ -9,18 +9,17 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 const App = props => {
   return (
-    <BrowserRouter>
       <div className={classes.wrapper}>
         <div className={classes.appWrapper}>
           <Header />
           <Navbar />
           <div className={classes.appWrapperContent}>
-            <Route path="/Dialogs" component={Dialogs} />
-            <Route path="/Profile" component={Profile} />
+            <Route path="/Dialogs" render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+            <Route path="/Profile" render={() => <Profile state = {props.state.profilePage} />} />
             <Route path="/News" component={News} />
             <Route path="/Muzic" component={Muzic} />
             <Route path="/Settings" component={Settings} />
@@ -28,7 +27,6 @@ const App = props => {
           <Footer />
         </div>
       </div>
-    </BrowserRouter>
   );
 };
 
