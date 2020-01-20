@@ -11,14 +11,17 @@ const MyPosts = (props) => {
   ));
 
   let addPost = () => {
-    alert("Add post complete!")
+    debugger;
+    let text = newPostElements.current.value;
+    props.addStatePost(text);
   }
+
 
   return (
     <div className={classes.myPosts}>
       <h3>My posts</h3>
       <div className={classes.textareaPost}>
-        <textarea ref={newPostElements}></textarea>
+        <textarea ref={newPostElements} id = "Nev post"></textarea>
       </div>
       <div className={classes.buttonAddPost}>
         <button onClick = {addPost}>Add post</button>

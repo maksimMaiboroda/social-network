@@ -2,3 +2,26 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
+
+.newMessageAdd {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end; 
+    padding: 10px;
+       
+}
+
+.newMessageAddText {
+    background-color: #fff;
+    border: none;
+    width: 70%;
+    border-radius: 5px;
+}
+
+.newMessageAddButton {
+    border: none;
+    width: 25%;
+    border-radius: 5px;
+}

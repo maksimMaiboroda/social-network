@@ -2,8 +2,8 @@ let state = {
 
   profilePage : {
     oldPostData : [
-    { id: 1, message: "Hi, how are you?", likesCount: "20" },
-    { id: 2, message: "It's my first post", likesCount: "11" }
+    { id: 1, message: "Hi, how are you?", likesCount: 20 },
+    { id: 2, message: "It's my first post", likesCount: 11 }
     ]
   },
 
@@ -47,5 +47,17 @@ let state = {
     }
 
 }
+
+export let addPost = (postMessage) => {
+  debugger;
+  let newPost = {
+    id: 3, 
+    message: postMessage, 
+    likesCount: 0
+  };
+
+  state.profilePage.oldPostData.push(newPost);
+};
+
 
 export default state;
