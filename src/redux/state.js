@@ -1,18 +1,15 @@
-import {renderEntireTree} from '../render';
+let store = {
+  _state: {
+    profilePage: {
+      oldPostData: [
+        { id: 1, message: "Hi, how are you?", likesCount: 20 },
+        { id: 2, message: "It's my first post", likesCount: 11 }
+      ],
+      newPostText: ""
+    },
 
-
-let state = {
-
-  profilePage : {
-    oldPostData : [
-    { id: 1, message: "Hi, how are you?", likesCount: 20 },
-    { id: 2, message: "It's my first post", likesCount: 11 }
-    ],
-    newPostText : ""
-  },
-
-  dialogsPage : {
-      oldDialogsData : [
+    dialogsPage: {
+      oldDialogsData: [
         { urlD: 1, userAva: "img", userName: "Viktor" },
         { urlD: 2, userAva: "img", userName: "Andrei" },
         { urlD: 3, userAva: "img", userName: "Sveta" },
@@ -21,7 +18,7 @@ let state = {
         { urlD: 6, userAva: "img", userName: "Valera" }
       ],
 
-      oldMessageData : [
+      oldMessageData: [
         {
           messageText:
             "0 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, autem?",
@@ -47,27 +44,57 @@ let state = {
             "4 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, autem?",
           id: 5
         }
-      ]
+      ],
+
+      newMessageText: ""
     }
+  },
 
-}
+  getState() {
+    return this._state;
+  },
 
-export let addPost = () => {
-  let newPost = {
-    id: 3, 
-    message: state.profilePage.newPostText, 
-    likesCount: 0
-  };
+  _callSubscriber() {
+    console.log("State changed");
+  },
 
-  state.profilePage.oldPostData.push(newPost);
-  state.profilePage.newPostText = '';
-  renderEntireTree (state);
+  addPost() {
+    let newPost = {
+      id: 3,
+      message: this._state.profilePage.newPostText,
+      likesCount: 0
+    };
+
+    this._state.profilePage.oldPostData.push(newPost);
+    this._state.profilePage.newPostText = "";
+    this._callSubscriber(this._state);
+  },
+
+  updateNewPostText(newText) {
+    this._state.profilePage.newPostText = newText;
+    this._callSubscriber(this._state);
+  },
+
+  addMessage() {
+    let newMessage = {
+      messageText: this._state.dialogsPage.newMessageText,
+      id: 6
+    };
+
+    this._state.dialogsPage.oldMessageData.push(newMessage);
+    this._state.dialogsPage.newMessageText = "";
+    this._callSubscriber(this._state);
+  },
+
+  updateNewMessageText(newText) {
+    this._state.dialogsPage.newMessageText = newText;
+    this._callSubscriber(this._state);
+  },
+
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  }
 };
 
-export let updateNewPostText = (newText) => {
-  state.profilePage.newPostText = newText;
-  renderEntireTree (state);
-};
 
-
-export default state;
+export default store;

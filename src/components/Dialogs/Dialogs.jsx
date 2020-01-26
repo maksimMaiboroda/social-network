@@ -4,11 +4,10 @@ import { NavLink } from "react-router-dom";
 import UserItem from "./UserItem/UserItem";
 import UserMessageItem from "./UserMessageItem/UserMessageItem";
 
-const Dialogs = (props) => { 
-  
+const Dialogs = props => {
   let newMessageContent = React.createRef();
- 
-  let newDialogsData = props.state.oldDialogsData.map(user => (
+
+  let newDialogsData = props.state.dialogsPage.oldDialogsData.map(user => (
     <UserItem
       urlD={user.urlD}
       userAva={user.userAva}
@@ -16,25 +15,37 @@ const Dialogs = (props) => {
     />
   ));
 
-  let newMessageData = props.state.oldMessageData.map(massage => (
+  let newMessageData = props.state.dialogsPage.oldMessageData.map(massage => (
     <UserMessageItem messageText={massage.messageText} id={massage.id} />
   ));
-    
+
   let addMessage = () => {
+    props.addMessage();
+  };
+
+  let onMessageChange = () => {
     let text = newMessageContent.current.value;
-    alert(text)
-  }
+    props.updateNewMessageText(text);
+  };
 
   return (
     <div className={classes.dialogs}>
       <div className={classes.user__list}>{newDialogsData}</div>
 
-      <div className={classes.massage__list}>{newMessageData}
-      <div className={classes.newMessageAdd}>
-        <textarea ref={newMessageContent} className={classes.newMessageAddText} placeholder="Введите новое сообщение!"></textarea>
-        <button onClick={addMessage} className={classes.newMessageAddButton}>отправить сообщение</button>
-      </div></div>
-      
+      <div className={classes.massage__list}>
+        {newMessageData}
+        <div className={classes.newMessageAdd}>
+          <textarea
+            onChange={onMessageChange}
+            ref={newMessageContent}
+            value={props.newMessageText}
+            className={classes.newMessageAddText}
+          />
+          <button onClick={addMessage} className={classes.newMessageAddButton}>
+            отправить сообщение
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -13,20 +13,40 @@ import { Route } from "react-router-dom";
 
 const App = props => {
   return (
-      <div className={classes.wrapper}>
-        <div className={classes.appWrapper}>
-          <Header />
-          <Navbar />
-          <div className={classes.appWrapperContent}>
-            <Route path="/Dialogs" render={() => <Dialogs state={props.state.dialogsPage}/>}/>
-            <Route path="/Profile" render={() => <Profile state = {props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText} newPostText={props.state.profilePage.newPostText}/>} />
-            <Route path="/News" component={News} />
-            <Route path="/Muzic" component={Muzic} />
-            <Route path="/Settings" component={Settings} />
-          </div>
-          <Footer />
+    <div className={classes.wrapper}>
+      <div className={classes.appWrapper}>
+        <Header />
+        <Navbar />
+        <div className={classes.appWrapperContent}>
+          <Route
+            path="/Dialogs"
+            render={() => (
+              <Dialogs
+                state={props.state}
+                addMessage={props.addMessage}
+                updateNewMessageText={props.updateNewMessageText}
+                newMessageText={props.state.dialogsPage.newMessageText}
+              />
+            )}
+          />
+          <Route
+            path="/Profile"
+            render={() => (
+              <Profile
+                state={props.state}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
+                newPostText={props.state.profilePage.newPostText}
+              />
+            )}
+          />
+          <Route path="/News" component={News} />
+          <Route path="/Muzic" component={Muzic} />
+          <Route path="/Settings" component={Settings} />
         </div>
+        <Footer />
       </div>
+    </div>
   );
 };
 
