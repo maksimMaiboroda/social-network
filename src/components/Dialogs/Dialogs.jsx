@@ -20,12 +20,12 @@ const Dialogs = props => {
   ));
 
   let addMessage = () => {
-    props.addMessage();
+    props.dispatch({type: "ADD-MESSAGE"});
   };
 
   let onMessageChange = () => {
     let text = newMessageContent.current.value;
-    props.updateNewMessageText(text);
+    props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: text});
   };
 
   return (
