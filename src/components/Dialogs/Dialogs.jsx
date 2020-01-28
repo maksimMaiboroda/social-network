@@ -1,12 +1,13 @@
 import React from "react";
 import classes from "./Dialogs.module.css";
-import { NavLink } from "react-router-dom";
 import UserItem from "./UserItem/UserItem";
 import UserMessageItem from "./UserMessageItem/UserMessageItem";
+import {
+  addMessageActionCreator,
+  updateNewMessageTextActionCreator
+} from "../../redux/dialogsReducer";
 
 const Dialogs = props => {
-  let newMessageContent = React.createRef();
-
   let newDialogsData = props.state.dialogsPage.oldDialogsData.map(user => (
     <UserItem
       urlD={user.urlD}
@@ -20,12 +21,12 @@ const Dialogs = props => {
   ));
 
   let addMessage = () => {
-    props.dispatch({type: "ADD-MESSAGE"});
+    props.dispatch(addMessageActionCreator());
   };
 
-  let onMessageChange = () => {
-    let text = newMessageContent.current.value;
-    props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: text});
+  let onMessageChange = e => {
+    let text = e.target.value;
+    props.dispatch(updateNewMessageTextActionCreator(text));
   };
 
   return (
@@ -37,7 +38,6 @@ const Dialogs = props => {
         <div className={classes.newMessageAdd}>
           <textarea
             onChange={onMessageChange}
-            ref={newMessageContent}
             value={props.newMessageText}
             className={classes.newMessageAddText}
           />
