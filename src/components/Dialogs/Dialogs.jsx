@@ -2,13 +2,9 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import UserItem from "./UserItem/UserItem";
 import UserMessageItem from "./UserMessageItem/UserMessageItem";
-import {
-  addMessageActionCreator,
-  updateNewMessageTextActionCreator
-} from "../../redux/dialogsReducer";
 
 const Dialogs = props => {
-  let newDialogsData = props.state.dialogsPage.oldDialogsData.map(user => (
+  let newDialogsData = props.state.oldDialogsData.map(user => (
     <UserItem
       urlD={user.urlD}
       userAva={user.userAva}
@@ -16,17 +12,17 @@ const Dialogs = props => {
     />
   ));
 
-  let newMessageData = props.state.dialogsPage.oldMessageData.map(massage => (
+  let newMessageData = props.state.oldMessageData.map(massage => (
     <UserMessageItem messageText={massage.messageText} id={massage.id} />
   ));
 
   let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.addMessage();
   };
 
   let onMessageChange = e => {
     let text = e.target.value;
-    props.dispatch(updateNewMessageTextActionCreator(text));
+    props.onMessageChange(text);
   };
 
   return (

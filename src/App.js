@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
-import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
@@ -20,19 +20,11 @@ const App = props => {
         <div className={classes.appWrapperContent}>
           <Route
             path="/Dialogs"
-            render={() => (
-              <Dialogs
-                state={props.state}
-                dispatch={props.dispatch}
-                newMessageText={props.state.dialogsPage.newMessageText}
-              />
-            )}
+            render={() => <DialogsContainer store={props.store} />}
           />
           <Route
             path="/Profile"
-            render={() => (
-              <Profile store={props.store} />
-            )}
+            render={() => <Profile store={props.store} />}
           />
           <Route path="/News" component={News} />
           <Route path="/Muzic" component={Muzic} />
