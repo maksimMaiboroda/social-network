@@ -4,16 +4,17 @@ import UserItem from "./UserItem/UserItem";
 import UserMessageItem from "./UserMessageItem/UserMessageItem";
 
 const Dialogs = props => {
-  let newDialogsData = props.state.oldDialogsData.map(user => (
+  let newDialogsData = props.oldDialogsData.map(user => (
     <UserItem
       urlD={user.urlD}
       userAva={user.userAva}
       userName={user.userName}
+      key={user.id}
     />
   ));
 
-  let newMessageData = props.state.oldMessageData.map(massage => (
-    <UserMessageItem messageText={massage.messageText} id={massage.id} />
+  let newMessageData = props.oldMessageData.map(massage => (
+    <UserMessageItem messageText={massage.messageText} id={massage.id} key={massage.id} />
   ));
 
   let addMessage = () => {
