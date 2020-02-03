@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-
+import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
@@ -25,6 +25,11 @@ const App = props => {
           <Route
             path="/Profile"
             render={() => <Profile store={props.store} />}
+          />
+          <Route
+          
+            path="/Users"
+            render={() => <UsersContainer store={props.store} />}
           />
           <Route path="/News" component={News} />
           <Route path="/Muzic" component={Muzic} />

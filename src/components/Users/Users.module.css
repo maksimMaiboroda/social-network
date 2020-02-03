@@ -1,0 +1,57 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin: 20px;
+}
+
+/* avatarContent */
+.avatarContent {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarPhotoWrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatarPhoto {
+  width: 100%;
+
+  height: auto;
+}
+
+/* userData */
+.userData {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid #e0dede;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.userDataLeft {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+
+.userDataRight {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+}
