@@ -1,10 +1,16 @@
 import React from "react";
 import classes from "./Users.module.css";
+import * as axios from "axios";
 
 const Users = props => {
-  
-    if (props.users.length < 4) {
-    props.setUsers(
+  if (props.users.length < 4) {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then(response => {
+        props.setUsers(response.data.items);
+      });
+
+    /* props.setUsers(
     {
       id: 1,
       photoUrl:
@@ -41,7 +47,8 @@ const Users = props => {
       status: "I am free to help you to create good Video Production",
       location: { country: "Ukraine", city: "Kamenka" }
     }
-  );}
+  ); */
+  }
 
   let User = props.users.map(user => (
     <div className={classes.user}>
