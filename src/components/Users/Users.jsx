@@ -4,9 +4,7 @@ import * as axios from "axios";
 import iconUser from "../../assets/img/iconUser.png";
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
-
+  componentDidMount() {
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then(response => {
@@ -14,7 +12,7 @@ class Users extends React.Component {
       });
   }
 
-  render = () => {
+  render() {
     return (
       <div>
         {this.props.users.map(user => (
@@ -62,7 +60,7 @@ class Users extends React.Component {
         ))}
       </div>
     );
-  };
+  }
 }
 
 export default Users;
