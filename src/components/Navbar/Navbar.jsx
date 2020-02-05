@@ -13,6 +13,13 @@ const Navbar = () => {
         Profile
       </NavLink>
       <NavLink
+        to="/users"
+        className={classes.linkItem}
+        activeClassName={classes.activeLink}
+      >
+        Users
+      </NavLink>
+      <NavLink
         to="/dialogs"
         className={classes.linkItem}
         activeClassName={classes.activeLink}
