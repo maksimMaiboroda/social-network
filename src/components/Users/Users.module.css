@@ -23,8 +23,11 @@
 
 .avatarPhoto {
   width: 100%;
-
   height: auto;
+}
+
+.btnFollowed {
+    
 }
 
 /* userData */

@@ -18,19 +18,9 @@ const App = props => {
         <Header />
         <Navbar />
         <div className={classes.appWrapperContent}>
-          <Route
-            path="/Dialogs"
-            render={() => <DialogsContainer store={props.store} />}
-          />
-          <Route
-            path="/Profile"
-            render={() => <Profile store={props.store} />}
-          />
-          <Route
-          
-            path="/Users"
-            render={() => <UsersContainer store={props.store} />}
-          />
+          <Route path="/Dialogs" render={() => <DialogsContainer />} />
+          <Route path="/Profile" render={() => <Profile />} />
+          <Route path="/Users" render={() => <UsersContainer />} />
           <Route path="/News" component={News} />
           <Route path="/Muzic" component={Muzic} />
           <Route path="/Settings" component={Settings} />
