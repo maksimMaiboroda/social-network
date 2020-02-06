@@ -27,7 +27,6 @@
 }
 
 .btnFollowed {
-    
 }
 
 /* userData */
@@ -47,9 +46,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
-
 
 .userDataRight {
   width: 40%;
@@ -57,4 +54,8 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: right;
+}
+
+.selectedPage {
+  font-weight: 700;
 }
