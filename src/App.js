@@ -10,6 +10,7 @@ import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
 import { Route } from "react-router-dom";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = props => {
   return (
@@ -19,7 +20,7 @@ const App = props => {
         <Navbar />
         <div className={classes.appWrapperContent}>
           <Route path="/Dialogs" render={() => <DialogsContainer />} />
-          <Route path="/Profile" render={() => <Profile />} />
+          <Route path="/Profile" render={() => <ProfileContainer />} />
           <Route path="/Users" render={() => <UsersContainer />} />
           <Route path="/News" component={News} />
           <Route path="/Muzic" component={Muzic} />

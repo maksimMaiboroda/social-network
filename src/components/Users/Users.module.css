@@ -59,3 +59,7 @@
 .selectedPage {
   font-weight: 700;
 }
+
+.pageNumbers {
+  cursor: pointer;
+}
