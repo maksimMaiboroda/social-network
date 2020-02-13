@@ -1,18 +1,49 @@
+
 .headImages {
-    padding: 1px;
+  padding: 1px;
 }
 
-.headImages>img {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: block;
-    width: 100%;
-    height: auto;
+.headImages > img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
+.pageProfileContent {
+  padding: 10px;
+  display: flex;
+   
+}
 
+.contentProfileLeft {
+  width: 30%;
+}
+.contentProfileRight {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+justify-content: space-between ;
+padding-left: 20px;
+}
 
-.pageTextContent {
-    padding: 10px;
+.avaPrpfile {
+  border-radius: 50%;
+  border: 1px solid #007180;
+  box-shadow: 0 0 7px #666;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.descriptionProfile {
+}
+
+.linkSocial {
+  margin: 20px;
 }

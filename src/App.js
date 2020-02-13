@@ -20,12 +20,12 @@ const App = props => {
         <Navbar />
         <div className={classes.appWrapperContent}>
           <Route path="/Dialogs" render={() => <DialogsContainer />} />
-          <Route path="/Profile" render={() => <ProfileContainer />} />
+          <Route path="/Profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/Users" render={() => <UsersContainer />} />
           <Route path="/News" component={News} />
           <Route path="/Muzic" component={Muzic} />
           <Route path="/Settings" component={Settings} />
-        </div>
+        </div> 
         <Footer />
       </div>
     </div>
