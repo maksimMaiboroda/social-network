@@ -1,7 +1,9 @@
 import React from "react";
 import classes from "./Users.module.css";
-import iconUser from "../../assets/img/iconUser.png";
+import iconUserNoName from "../../assets/img/iconUser.png";
 import { NavLink } from "react-router-dom";
+import * as axios from "axios";
+import { followAPI } from "../../api/api";
 
 let Users = props => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -16,8 +18,7 @@ let Users = props => {
       <div>
         {pages.map(p => {
           return (
-            <span 
-              
+            <span
               className={props.currentPage === p && classes.selectedPage}
               onClick={e => {
                 props.onPageChanged(p);
@@ -34,14 +35,25 @@ let Users = props => {
           <div className={classes.avatarContent}>
             <div className={classes.avatarPhotoWrapper}>
               <NavLink to={"/profile/" + user.id}>
-                <img src={iconUser} className={classes.avatarPhoto}></img>
+                <img
+                  src={
+                    user.photos.small != null
+                      ? user.photos.small
+                      : iconUserNoName
+                  }
+                  className={classes.avatarPhoto}
+                ></img>
               </NavLink>
             </div>
             <div>
               {user.followed ? (
                 <button
                   onClick={() => {
-                    props.unfollow(user.id);
+                    followAPI.unfollow(user.id).then(data => {
+                      if (data.resultCode === 0) {
+                        props.unfollow(user.id);
+                      }
+                    });
                   }}
                   className={classes.btnFollowed}
                 >
@@ -50,7 +62,11 @@ let Users = props => {
               ) : (
                 <button
                   onClick={() => {
-                    props.follow(user.id);
+                    followAPI.follow(user.id).then(data => {
+                      if (data.resultCode === 0) {
+                        props.follow(user.id);
+                      }
+                    });
                   }}
                   className={classes.btnFollowed}
                 >

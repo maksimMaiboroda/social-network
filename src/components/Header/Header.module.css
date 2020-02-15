@@ -6,7 +6,19 @@
   border-bottom-right-radius: 10px;
 }
 
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+}
+
 .logo {
   width: 50px;
   height: auto;
+}
+
+.loginBlock {
+
 }

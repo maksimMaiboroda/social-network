@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/preloader";
 import { NavLink } from "react-router-dom";
+import iconUserNoName from "../../../assets/img/iconUser.png"
 
 const ProfileInfo = props => {
   if (!props.profile) {
@@ -15,7 +16,7 @@ const ProfileInfo = props => {
       <div className={classes.pageProfileContent}>
         <div className={classes.contentProfileLeft}>
           <div className={classes.avaPrpfile}>
-            <img src={props.profile.photos.large}></img>
+            <img src={props.profile.photos.large != null ? props.profile.photos.large : iconUserNoName} ></img>
           </div>
         </div>
         <div className={classes.contentProfileRight}>
@@ -23,7 +24,7 @@ const ProfileInfo = props => {
             {props.profile.aboutMe}
           </div>
           <div>
-            <NavLink
+            {/* <NavLink
               to={props.profile.contacts.facebook}
               className={classes.linkSocial}
               activeClassName={classes.activeLinkSocial}
@@ -58,7 +59,7 @@ const ProfileInfo = props => {
               activeClassName={classes.activeLinkSocial}
             >
               github
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </div>

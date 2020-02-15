@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./App.module.css";
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
@@ -16,16 +16,16 @@ const App = props => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.appWrapper}>
-        <Header />
+        <HeaderContainer />
         <Navbar />
         <div className={classes.appWrapperContent}>
           <Route path="/Dialogs" render={() => <DialogsContainer />} />
-          <Route path="/Profile/:userId?" render={() => <ProfileContainer />} />
+          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/Users" render={() => <UsersContainer />} />
           <Route path="/News" component={News} />
           <Route path="/Muzic" component={Muzic} />
           <Route path="/Settings" component={Settings} />
-        </div> 
+        </div>
         <Footer />
       </div>
     </div>
