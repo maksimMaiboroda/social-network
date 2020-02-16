@@ -11,6 +11,7 @@ import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
 import { Route } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import Login from "./components/Login/Login";
 
 const App = props => {
   return (
@@ -19,12 +20,13 @@ const App = props => {
         <HeaderContainer />
         <Navbar />
         <div className={classes.appWrapperContent}>
-          <Route path="/Dialogs" render={() => <DialogsContainer />} />
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/Users" render={() => <UsersContainer />} />
-          <Route path="/News" component={News} />
-          <Route path="/Muzic" component={Muzic} />
-          <Route path="/Settings" component={Settings} />
+          <Route path="/users" render={() => <UsersContainer />} />
+          <Route path="/news" component={News} />
+          <Route path="/muzic" component={Muzic} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/login" component={Login} />
         </div>
         <Footer />
       </div>

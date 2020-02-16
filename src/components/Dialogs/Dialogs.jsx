@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import UserItem from "./UserItem/UserItem";
 import UserMessageItem from "./UserMessageItem/UserMessageItem";
+import { Redirect } from "react-router-dom";
 
 const Dialogs = props => {
   let newDialogsData = props.oldDialogsData.map(user => (
@@ -14,7 +15,11 @@ const Dialogs = props => {
   ));
 
   let newMessageData = props.oldMessageData.map(massage => (
-    <UserMessageItem messageText={massage.messageText} id={massage.id} key={massage.id} />
+    <UserMessageItem
+      messageText={massage.messageText}
+      id={massage.id}
+      key={massage.id}
+    />
   ));
 
   let addMessage = () => {
@@ -25,6 +30,8 @@ const Dialogs = props => {
     let text = e.target.value;
     props.onMessageChange(text);
   };
+
+  if (!props.isAuth) return <Redirect to={"/login"} />;
 
   return (
     <div className={classes.dialogs}>
