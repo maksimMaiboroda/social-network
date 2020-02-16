@@ -2,8 +2,7 @@ import React from "react";
 import classes from "./Users.module.css";
 import iconUserNoName from "../../assets/img/iconUser.png";
 import { NavLink } from "react-router-dom";
-import * as axios from "axios";
-import { followAPI } from "../../api/api";
+import { unfollow } from "../../redux/usersReducer";
 
 let Users = props => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -52,13 +51,7 @@ let Users = props => {
                     id => id === user.id
                   )}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, user.id);
-                    followAPI.unfollow(user.id).then(data => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(user.id);
-                      }
-                      props.toggleFollowingProgress(false, user.id);
-                    });
+                    props.unfollow(user.id)
                   }}
                   className={classes.btnFollowed}
                 >
@@ -70,13 +63,7 @@ let Users = props => {
                     id => id === user.id
                   )}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, user.id);
-                    followAPI.follow(user.id).then(data => {
-                      if (data.resultCode === 0) {
-                        props.follow(user.id);
-                      }
-                      props.toggleFollowingProgress(false, user.id);
-                    });
+                    props.follow(user.id)
                   }}
                   className={classes.btnFollowed}
                 >
