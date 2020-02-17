@@ -3,6 +3,7 @@ import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/preloader";
 import { NavLink } from "react-router-dom";
 import iconUserNoName from "../../../assets/img/iconUser.png"
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 const ProfileInfo = props => {
   if (!props.profile) {
@@ -12,9 +13,9 @@ const ProfileInfo = props => {
   
   return (
     <div className={classes.content}>
-      <div className={classes.headImages}>
+      {/* <div className={classes.headImages}>
         <img src="http://we.com.mk/wp-content/uploads/2016/12/greece-islands.jpg"></img>
-      </div>
+      </div> */}
       <div className={classes.pageProfileContent}>
         <div className={classes.contentProfileLeft}>
           <div className={classes.avaPrpfile}>
@@ -22,47 +23,11 @@ const ProfileInfo = props => {
           </div>
         </div>
         <div className={classes.contentProfileRight}>
-          <div className={classes.descriptionProfile}>
+          <ProfileStatus status="Hello my frends!"/>
+          
+          {/* <div className={classes.descriptionProfile}>
             {props.profile.aboutMe}
-          </div>
-          <div>
-            {/* <NavLink
-              to={props.profile.contacts.facebook}
-              className={classes.linkSocial}
-              activeClassName={classes.activeLinkSocial}
-            >
-              facebook
-            </NavLink>
-            <NavLink
-              to={props.profile.contacts.vk}
-              className={classes.linkSocial}
-              activeClassName={classes.activeLinkSocial}
-            >
-              vk
-            </NavLink>
-            <NavLink
-              to={props.profile.contacts.twitter}
-              className={classes.linkSocial}
-              activeClassName={classes.activeLinkSocial}
-            >
-              twitter
-            </NavLink>
-            <NavLink
-              to={props.profile.contacts.instagram}
-              className={classes.linkSocial}
-              activeClassName={classes.activeLinkSocial}
-            >
-              instagram
-            </NavLink>
-           
-            <NavLink
-              to={props.profile.contacts.github}
-              className={classes.linkSocial}
-              activeClassName={classes.activeLinkSocial}
-            >
-              github
-            </NavLink> */}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
