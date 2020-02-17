@@ -39,10 +39,22 @@ export const userAPI = {
         }
       )
       .then(response => response.data);
+  }
+};
+
+export const profileAPI = {
+  getProfile(userId) {
+    return instanse.get(`profile/${userId}`).then(response => response.data);
   },
 
-  getProfile (userId) {
-    return instanse.get(`profile/${userId}`).then(response => response.data);
+  getStatus(userId) {
+    return instanse
+      .get("profile/status/" + userId)
+  },
+
+  updateStatus(status) {
+    return instanse
+      .put("profile/status", { status: status })
   }
 };
 
@@ -51,4 +63,3 @@ export const authAPI = {
     return instanse.get(`auth/me`).then(response => response.data);
   }
 };
-
