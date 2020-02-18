@@ -23,7 +23,7 @@ const ProfileInfo = props => {
           </div>
         </div>
         <div className={classes.contentProfileRight}>
-          <ProfileStatus status={props.status}/>
+          <ProfileStatus status={props.status}  updateStatus={props.updateStatus}/>
           
           {/* <div className={classes.descriptionProfile}>
             {props.profile.aboutMe}
