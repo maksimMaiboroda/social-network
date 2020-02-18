@@ -1,7 +1,17 @@
 import React from "react";
+import LoginReduxForm from "./LoginForm/LoginForm";
 
-const Login = () => {
-return <h1>LOGIN</h1>
-}
+const Login = (props) => {
+  const onSubmit = formData => {
+    console.log(formData);
+  };
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <LoginReduxForm onSubmit={onSubmit} />
+    </div>
+  );
+};
 
 export default Login;
