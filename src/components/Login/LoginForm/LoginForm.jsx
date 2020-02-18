@@ -6,7 +6,7 @@ const LoginForm = props => {
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          name="inputLogin"
+          name="email"
           component="input"
           type="text"
           placeholder="Login"
@@ -14,7 +14,7 @@ const LoginForm = props => {
       </div>
       <div>
         <Field
-          name="inputPassword"
+          name="password"
           component="input"
           type="text"
           placeholder="Password"

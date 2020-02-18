@@ -61,5 +61,10 @@ export const profileAPI = {
 export const authAPI = {
   me() {
     return instanse.get(`auth/me`).then(response => response.data);
+  },
+
+  login (formData) {
+    debugger
+    return instanse.post('auth/login', formData )
   }
 };

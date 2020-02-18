@@ -2,6 +2,7 @@ import { authAPI } from "../api/api";
 
 const SET_USER_DATA = "SET-USER-DATA";
 
+
 let initialState = {
   userId: null,
   login: null,

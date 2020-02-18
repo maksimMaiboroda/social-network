@@ -1,9 +1,11 @@
 import React from "react";
 import LoginReduxForm from "./LoginForm/LoginForm";
+import { connect } from "react-redux";
+import { authUser } from "../../redux/authUserReducer";
 
-const Login = (props) => {
+const Login = props => {
   const onSubmit = formData => {
-    console.log(formData);
+    props.authUser(formData);
   };
 
   return (
@@ -14,4 +16,6 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+let mapStateToProps = state => ({});
+
+export default connect(mapStateToProps, { authUser })(Login);
