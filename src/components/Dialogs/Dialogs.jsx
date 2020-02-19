@@ -3,6 +3,7 @@ import classes from "./Dialogs.module.css";
 import UserItem from "./UserItem/UserItem";
 import UserMessageItem from "./UserMessageItem/UserMessageItem";
 import { Redirect } from "react-router-dom";
+import NewMessageFormRedux from "./NewMessageForm/NewMessageForm";
 
 const Dialogs = props => {
   let newDialogsData = props.oldDialogsData.map(user => (
@@ -22,16 +23,12 @@ const Dialogs = props => {
     />
   ));
 
-  let addMessage = () => {
-    props.addMessage();
-  };
-
-  let onMessageChange = e => {
-    let text = e.target.value;
-    props.onMessageChange(text);
-  };
-
  
+
+  const addNewMessage = formDatta => {
+    
+    props.addMessageActionCreator(formDatta.newMessageBody);
+  };
 
   return (
     <div className={classes.dialogs}>
@@ -40,20 +37,11 @@ const Dialogs = props => {
       <div className={classes.massage__list}>
         {newMessageData}
         <div className={classes.newMessageAdd}>
-          <textarea
-            onChange={onMessageChange}
-            value={props.newMessageText}
-            className={classes.newMessageAddText}
-          />
-          <button onClick={addMessage} className={classes.newMessageAddButton}>
-            отправить сообщение
-          </button>
+          <NewMessageFormRedux onSubmit={addNewMessage} />
         </div>
       </div>
     </div>
   );
 };
-
-
 
 export default Dialogs;
