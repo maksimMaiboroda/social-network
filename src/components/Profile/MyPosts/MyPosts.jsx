@@ -1,30 +1,30 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
+import NewPostForm from "./NewPostForm";
 
 const MyPosts = props => {
   let newPostData = props.oldPostData.map(post => (
-    <Posts message={post.message} likesCount={post.likesCount} kei={post.id}/>
+    <Posts message={post.message} likesCount={post.likesCount} kei={post.id} />
   ));
 
-  let addPost = () => {
-    props.addPost();
+  const onSubmit = formData => {
+    console.log(formData);
+  };
+
+  /*  let addPost = () => {
+    props.addPostActionCreator();
   };
 
   let onPostChange = e => {
     let text = e.target.value;
-    props.onPostChange(text);
-  };
+    props.updateNewPostTextActionCreator(text);
+  }; */
 
   return (
     <div className={classes.myPosts}>
       <h3>My posts</h3>
-      <div className={classes.textareaPost}>
-        <textarea onChange={onPostChange} value={props.newPostText} />
-      </div>
-      <div className={classes.buttonAddPost}>
-        <button onClick={addPost}>Add post</button>
-      </div>
+      <NewPostForm onSubmit={onSubmit} {...props} />
       <div className={classes.posts}>{newPostData}</div>
     </div>
   );
