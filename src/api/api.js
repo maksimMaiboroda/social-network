@@ -48,13 +48,11 @@ export const profileAPI = {
   },
 
   getStatus(userId) {
-    return instanse
-      .get("profile/status/" + userId)
+    return instanse.get("profile/status/" + userId);
   },
 
   updateStatus(status) {
-    return instanse
-      .put("profile/status", { status: status })
+    return instanse.put("profile/status", { status: status });
   }
 };
 
@@ -63,8 +61,11 @@ export const authAPI = {
     return instanse.get(`auth/me`).then(response => response.data);
   },
 
-  login (formData) {
-    debugger
-    return instanse.post('auth/login', formData )
+  login({ email, password, rememberMe }) {
+    return instanse.post("auth/login", { email, password, rememberMe });
+  },
+
+  logout() {
+    return instanse.delete("auth/login", { data: {} });
   }
 };
