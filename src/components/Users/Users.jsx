@@ -22,7 +22,6 @@ let Users = props => {
               onClick={e => {
                 props.onPageChanged(p);
               }}
-              /* className={classes.pageNumbers} */
             >
               {p}
             </span>

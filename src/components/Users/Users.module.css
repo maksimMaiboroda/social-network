@@ -57,9 +57,9 @@
 }
 
 .selectedPage {
-  font-weight: 700;
+  font-weight: bold;
 }
 
-.pageNumbers {
+/* .pageNumbers {
   cursor: pointer;
-}
+} */
