@@ -2,6 +2,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../common/FormsControls/FormsControls";
 import { required } from "../../../utils/validators/validarion";
+import classes from "../Login.module.css";
 
 const LoginForm = props => {
   return (
@@ -32,6 +33,13 @@ const LoginForm = props => {
         />
         Remember me
       </div>
+
+    {
+      props.error && <div className={classes.formSummaryError}>
+        {props.error}
+      </div>
+    }
+
       <div>
         <button type="submit">Login</button>
       </div>
