@@ -60,6 +60,7 @@
   font-weight: bold;
 }
 
-/* .pageNumbers {
+.pageNumbers {
+  margin: 5px;
   cursor: pointer;
-} */
+}

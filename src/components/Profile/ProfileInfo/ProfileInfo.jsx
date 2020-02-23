@@ -3,7 +3,7 @@ import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/preloader";
 import { NavLink } from "react-router-dom";
 import iconUserNoName from "../../../assets/img/iconUser.png"
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = props => {
   if (!props.profile) {
@@ -23,7 +23,7 @@ const ProfileInfo = props => {
           </div>
         </div>
         <div className={classes.contentProfileRight}>
-          <ProfileStatus status={props.status}  updateStatus={props.updateStatus}/>
+          <ProfileStatusWithHooks status={props.status}  updateStatus={props.updateStatus}/>
           
           {/* <div className={classes.descriptionProfile}>
             {props.profile.aboutMe}
