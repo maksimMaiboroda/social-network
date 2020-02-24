@@ -4,11 +4,15 @@ import Posts from "./Posts/Posts";
 import NewPostFormRedux from "./NewPostForm";
 
 const MyPosts = React.memo(props => {
-  console.log("RENDER");
-
-  let newPostData = props.oldPostData.map(post => (
-    <Posts message={post.message} likesCount={post.likesCount} kei={post.id} />
-  ));
+  let newPostData = [...props.oldPostData]
+    .reverse()
+    .map(post => (
+      <Posts
+        message={post.message}
+        likesCount={post.likesCount}
+        kei={post.id}
+      />
+    ));
 
   const onSubmit = formData => {
     props.addPostActionCreator(formData.newPostText);
@@ -18,7 +22,7 @@ const MyPosts = React.memo(props => {
     <div className={classes.myPosts}>
       <h3>My posts</h3>
       <NewPostFormRedux onSubmit={onSubmit} {...props} />
-      <div className={classes.posts}>{newPostData}</div>
+      <div className={classes.postBody}>{newPostData}</div>
     </div>
   );
 });
