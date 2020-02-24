@@ -9,8 +9,6 @@ let mapStateToProps = state => {
   };
 };
 
-const MyPostsContainer = connect(mapStateToProps, { addPostActionCreator })(
+export default  connect(mapStateToProps, { addPostActionCreator })(
   MyPosts
 );
-
-export default MyPostsContainer;

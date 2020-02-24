@@ -3,7 +3,9 @@ import classes from "./MyPosts.module.css";
 import Posts from "./Posts/Posts";
 import NewPostFormRedux from "./NewPostForm";
 
-const MyPosts = props => {
+const MyPosts = React.memo(props => {
+  console.log("RENDER");
+
   let newPostData = props.oldPostData.map(post => (
     <Posts message={post.message} likesCount={post.likesCount} kei={post.id} />
   ));
@@ -19,6 +21,6 @@ const MyPosts = props => {
       <div className={classes.posts}>{newPostData}</div>
     </div>
   );
-};
+});
 
 export default MyPosts;
