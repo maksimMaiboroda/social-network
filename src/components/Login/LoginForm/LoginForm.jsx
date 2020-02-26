@@ -4,9 +4,9 @@ import { Input } from "../../common/FormsControls/FormsControls";
 import { required } from "../../../utils/validators/validarion";
 import classes from "../Login.module.css";
 
-const LoginForm = props => {
+const LoginForm = ({handleSubmit, error}) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <Field
           validate={[required]}
@@ -35,8 +35,8 @@ const LoginForm = props => {
       </div>
 
     {
-      props.error && <div className={classes.formSummaryError}>
-        {props.error}
+      error && <div className={classes.formSummaryError}>
+        {error}
       </div>
     }
 
