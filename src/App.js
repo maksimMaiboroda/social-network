@@ -8,13 +8,14 @@ import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, BrowserRouter } from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import Login from "./components/Login/Login";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializedApp } from "./redux/appReducer";
 import Preloader from "./components/common/preloader/preloader";
+import store from "./redux/reduxStore";
 
 class App extends React.Component {
   componentDidMount() {
@@ -54,7 +55,19 @@ const mapStateToProps = state => ({
   initialized: state.app.initialized
 });
 
-export default compose(
+const AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializedApp })
 )(App);
+
+const AppSocialNetwork = () => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  );
+};
+
+export default AppSocialNetwork;
