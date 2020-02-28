@@ -25,7 +25,7 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-justify-content: space-between ;
+justify-content: start ;
 padding-left: 20px;
 }
 
@@ -33,16 +33,19 @@ padding-left: 20px;
   border-radius: 50%;
   border: 1px solid #007180;
   box-shadow: 0 0 7px #666;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.descriptionProfile {
+.imgProfile{
+  width: 100%;
+  height: auto;
 }
+
 
 .linkSocial {
   margin: 20px;

@@ -4,7 +4,7 @@ import Preloader from "../../common/preloader/preloader";
 import iconUserNoName from "../../../assets/img/iconUser.png";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
   if (!profile) {
     return <Preloader />;
   }
@@ -15,6 +15,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
         <div className={classes.contentProfileLeft}>
           <div className={classes.avaPrpfile}>
             <img
+              className={classes.imgProfile}
               src={
                 profile.photos.large != null
                   ? profile.photos.large
@@ -24,10 +25,8 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
           </div>
         </div>
         <div className={classes.contentProfileRight}>
-          <ProfileStatusWithHooks
-            status={status}
-            updateStatus={updateStatus}
-          />
+          <div className={classes.nameUser}>{profile.fullName}</div>
+          <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
+import classes from "./Users.module.css";
 
 let Users = ({
   totalUsersCount,
@@ -15,21 +16,25 @@ let Users = ({
 }) => {
   return (
     <div>
-      <Paginator
-        totalItemsCount={totalUsersCount}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageChanged={onPageChanged}
-      />
-      {users.map(user => (
-        <User
-          user={user}
-          key={user.id}
-          followingInProgress={followingInProgress}
-          follow={follow}
-          unfollow={unfollow}
+      <div className={classes.usersPaginator}>
+        <Paginator
+          totalItemsCount={totalUsersCount}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChanged={onPageChanged}
         />
-      ))}
+      </div>
+      <div className={classes.usersContainer}>
+        {users.map(user => (
+          <User
+            user={user}
+            key={user.id}
+            followingInProgress={followingInProgress}
+            follow={follow}
+            unfollow={unfollow}
+          />
+        ))}
+      </div>
     </div>
   );
 };

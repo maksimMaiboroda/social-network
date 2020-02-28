@@ -7,7 +7,7 @@ let Paginator = ({
   pageSize,
   currentPage,
   onPageChanged,
-  portionSize = 10
+  portionSize = 5
 }) => {
   let pageCount = Math.ceil(totalItemsCount / pageSize);
 
@@ -24,20 +24,17 @@ let Paginator = ({
   return (
     <div className={classes.paginator}>
       {portionNumber > 1 && (
-        <button
+        <button className={classes.btnPagination}
           onClick={() => {
             setPortionNumber(portionNumber - 1);
-          }}
-        >
-          PREV
-        </button>
+          }}>{"<"}</button>
       )}
 
       {pages
         .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
         .map(p => {
           return (
-            <span
+            <div className={classes.pageNumberWraper}> <span
               className={cn(
                 {
                   [classes.selectedPage]: currentPage === p
@@ -50,16 +47,15 @@ let Paginator = ({
               }}
             >
               {p}
-            </span>
+            </span></div>
           );
         })}
       {portionCount > portionNumber && (
-        <button
+        <button className={classes.btnPagination}
           onClick={() => {
             setPortionNumber(portionNumber + 1);
           }}
-        >
-          NEXT
+        >{">"}
         </button>
       )}
     </div>

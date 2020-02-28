@@ -15,10 +15,21 @@
 }
 
 .logo {
-  width: 50px;
+  width: 150px;
   height: auto;
 }
 
-.loginBlock {
+.loginBlock{
+  color: #205684;
+  font-weight: bold;
+}
 
+.loginButton{ 
+  width: 100%;
+  border: none;
+  line-height: 1.2rem;
+  background-color: #205684;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }

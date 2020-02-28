@@ -1,15 +1,34 @@
 .paginator {
   margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.pageNumber {
+  margin: 0 5px;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
-.pageNumber {
-  
-  padding: 2px;
-  border: 1px solid gray;
+.pageNumber:hover{
+  color: #205684;
 }
+
 
 .pageNumber.selectedPage {
- 
-    font-weight: bold;
-    border-color: black;
-  }
+  font-weight: bold;
+  border-color: black;
+}
+
+.btnPagination {
+  margin: 0 10px;
+  border: none;
+  background: none;
+  color: #103e66;
+  font-weight: bold;
+  cursor: pointer;
+}

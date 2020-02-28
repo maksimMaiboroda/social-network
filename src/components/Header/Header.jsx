@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Header.module.css";
 import { NavLink } from "react-router-dom";
+import headerLogo from "../../assets/img/Logo.svg"
 
 const Header = props => {
   return (
@@ -8,11 +9,11 @@ const Header = props => {
       <div className={classes.headerContent}>
         <img
           className={classes.logo}
-          src="https://upload.wikimedia.org/wikipedia/ru/a/a3/Unity_Logo.png"
+          src={headerLogo}
           alt="lorem"
         />
         <div className={classes.loginBlock}>
-          <span>
+          <span >
             {" "}
             {props.isAuth ? (
               props.login
@@ -21,7 +22,7 @@ const Header = props => {
             )}
           </span>
           <div>
-            <button onClick={props.logout}> Logout </button>{" "}
+            <button className={classes.loginButton} onClick={props.logout}> Logout </button>{" "}
           </div>
         </div>
       </div>
