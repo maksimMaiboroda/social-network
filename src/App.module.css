@@ -1,26 +1,31 @@
 .wrapper {
   width: 100%;
   height: 100%;
-  background-color: rgba(227, 230, 229, 0.747);
+  background-color: #EDEEF0;
+ /*  display: flex;
+  justify-content: center; */
+ 
 
 }
 
-.appWrapper {
+.contentWrapper {
   padding: 0 20px;
   display: grid;
   grid-template-areas:
-    "header header"
+   
     "nav page-content"
-    "footer footer";
-  grid-template-rows: 10vh 1fr 10vh;
+    ;
+  grid-template-rows:  1fr ;
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
   min-height: 100vh;
+  max-width: 940px;
+  margin: auto;
 }
 
 .appWrapperContent {
   grid-area: page-content;
-  border-radius: 10px;
-  background-color: rgb(35, 157, 194);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(156, 146, 146, 0.5);
 }

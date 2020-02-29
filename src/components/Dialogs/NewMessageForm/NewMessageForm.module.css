@@ -1,0 +1,25 @@
+.textareaWrap {
+  margin-top: 10px;
+  width: 75%;
+  margin-left: 20%;
+}
+
+.textarea {
+  resize: none;
+  overflow: auto;
+  width: 100%;
+  padding: 0;
+  padding-top: 5px;
+  padding-left: 5px;
+  margin: 0;
+}
+
+.btnTextarea{
+  margin-left: 20%;
+  background-color: #5181B8;
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+}

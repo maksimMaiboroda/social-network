@@ -1,20 +1,23 @@
 .userElements a {
-    color: #fff;
+    color: #222222;
     text-decoration: none;
 }
 
+.userElements a:hover {
+    background-color: #a4adbb;
+  
+}
+
 .userElements a.activeLink {
-    color: gold;
+    background-color: #a4adbb;
 }
 
 
 .user__item {
-    border: 1px solid rgb(52, 179, 218);
-    border-radius: 10px;
+    border-bottom: 1px solid #E7E8EC;
+    border-radius: 3px;
     margin: 5px;
     padding: 5px;
-    display: flex;
-    justify-content: space-between;
     display: grid;
     grid-template-columns: 2fr 3fr;
 }

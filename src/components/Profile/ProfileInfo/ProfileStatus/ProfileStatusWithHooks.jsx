@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classes from "./ProfileStatusWithHooks.module.css";
 
 const ProfileStatusWithHooks = props => {
   let [editMode, setEditMode] = useState(false);
@@ -19,21 +20,41 @@ const ProfileStatusWithHooks = props => {
   };
 
   return (
-    <div>
+    <div className={classes.statusContent} >
       {!editMode && (
-        <div>
-          <span onDoubleClick={activateMode}>{props.status}</span>
-        </div>
+        <>
+          <div>
+            <span className={classes.status} onDoubleClick={activateMode}>
+              {props.status}
+            </span>
+          </div>
+          <button className={classes.btnStatus}
+            onClick={() => {
+              activateMode();
+            }}
+          >
+            Change status
+          </button>
+        </>
       )}
       {editMode && (
-        <div>
-          <input
-            onChange={onStatusChange}
-            onBlur={deactivateEditMode}
-            autoFocus={true}
-            value={status}
-          ></input>
-        </div>
+        <>
+          <div>
+            <input
+              onChange={onStatusChange}
+              onBlur={deactivateEditMode}
+              autoFocus={true}
+              value={status}
+            ></input>
+          </div>
+          <button className={classes.btnStatus}
+        onClick={() => {
+          deactivateEditMode();
+        }}
+      >
+        Change status
+      </button>
+        </>
       )}
     </div>
   );

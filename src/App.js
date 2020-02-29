@@ -34,8 +34,8 @@ class App extends React.Component {
 
     return (
       <div className={classes.wrapper}>
-        <div className={classes.appWrapper}>
-          <HeaderContainer />
+        <HeaderContainer />
+        <div className={classes.contentWrapper}>
           <Navbar />
           <div className={classes.appWrapperContent}>
             <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
@@ -49,8 +49,8 @@ class App extends React.Component {
             <Route path="/settings" component={Settings} />
             <Route path="/login" component={Login} />
           </div>
-          <Footer />
         </div>
+        <Footer />
       </div>
     );
   }

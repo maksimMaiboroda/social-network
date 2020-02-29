@@ -3,18 +3,21 @@
     grid-template-columns: 2fr 10fr;
 }
 
+.userList{
+    color: #222222;
+}
+
+.massageList{
+    color: #656565;
+}
+
 .newMessageAdd {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end; 
-    padding: 10px;
+    width: 100%;
        
 }
 
 .newMessageAddText {
-    background-color: #fff;
+   
     border: none;
     width: 70%;
     border-radius: 5px;

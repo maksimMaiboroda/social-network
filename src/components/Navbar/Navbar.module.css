@@ -1,21 +1,24 @@
 .nav {
   grid-area: nav;
-  background-color: rgb(35, 157, 194);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  
 }
 
 .linkItem {
   text-decoration: none;
   display: block;
-  color: rgb(255, 255, 255);
+  color: #285473;
   margin: 5px;
   padding: 10px;
-  border: 1px solid rgb(52, 179, 218);
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
 }
 
+.linkItem:hover {
+  background-color: #a4adbb;
+  color: #1D2129;
+}
+
 .nav a.activeLink {
-  color: gold;
+  color: #1D2129;
+  
 }

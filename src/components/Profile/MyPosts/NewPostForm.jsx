@@ -5,21 +5,25 @@ import {
   maxLengthCreator
 } from "../../../utils/validators/validarion";
 import { Textarea } from "../../common/FormsControls/FormsControls";
-const maxLength10 = maxLengthCreator(10);
+import classes from "./NewPostForm.module.css"
+
+const maxLength200 = maxLengthCreator(200);
 
 const NewPostForm = props => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <div>
+      <div className={classes.textareaWrap}>
         <Field
+          className={classes.textarea}
           name="newPostText"
           component={Textarea}
-          validate={[required, maxLength10]}
+          validate={[required, maxLength200]}
           placeholder={"Post message"}
         />
+        <div />
       </div>
       <div>
-        <button type="submit">Add new post!</button>
+        <button className={classes.btnTextarea} type="submit">Add new post!</button>
       </div>
     </form>
   );

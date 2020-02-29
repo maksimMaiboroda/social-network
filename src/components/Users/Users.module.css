@@ -11,7 +11,7 @@ align-items: center;
 .user {
   display: flex;
   flex-direction: row;
-  width: 60%;
+  width: 80%;
   margin: 20px;
 }
 
@@ -38,10 +38,10 @@ align-items: center;
 }
 
 .btnFollowed {
-  width: 100%;
+  width: 110px;
   border: none;
   line-height: 1.2rem;
-  background-color: #205684;
+  background-color: #5181B8;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -53,8 +53,7 @@ align-items: center;
 .userDataWrapper{
   background-color: rgba(220, 225, 230, 0.5);
   width: 100%;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-radius: 3px;
 }
 .userData {
   width: 70%;

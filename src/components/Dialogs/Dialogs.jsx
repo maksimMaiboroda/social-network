@@ -23,22 +23,19 @@ const Dialogs = props => {
     />
   ));
 
- 
-
   const addNewMessage = formDatta => {
-    
     props.addMessageActionCreator(formDatta.newMessageBody);
   };
 
   return (
-    <div className={classes.dialogs}>
-      <div className={classes.user__list}>{newDialogsData}</div>
+    <div>
+      <div className={classes.dialogs}>
+        <div className={classes.userList}>{newDialogsData}</div>
 
-      <div className={classes.massage__list}>
-        {newMessageData}
-        <div className={classes.newMessageAdd}>
-          <NewMessageFormRedux onSubmit={addNewMessage} />
-        </div>
+        <div className={classes.massageList}>{newMessageData}</div>
+      </div>
+      <div className={classes.newMessageAdd}>
+        <NewMessageFormRedux onSubmit={addNewMessage} />
       </div>
     </div>
   );

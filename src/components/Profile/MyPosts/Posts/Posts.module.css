@@ -1,8 +1,36 @@
 .item {
-    color: greenyellow;
+    color: #828292;
+    width: 70%;
 }
 
 .postsAva {
-    width: 100px;
+    width: 20%;
     border-radius: 200px;
+    
+}
+
+.postsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #E7E8EC;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+.postslikes {
+    text-align: right;
+}
+
+
+
+.likesLink{
+    text-decoration: none;
+    color: #000;
+    vertical-align: middle;
+}
+
+.likesHeart{
+    color: #FF3347;
+    margin-left: 5px;
 }
