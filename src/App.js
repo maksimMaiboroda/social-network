@@ -7,7 +7,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
-import { Route, withRouter, BrowserRouter } from "react-router-dom";
+import { HashRouter, Route, withRouter, BrowserRouter } from "react-router-dom";
 import Login from "./components/Login/Login";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
@@ -67,11 +67,11 @@ const AppContainer = compose(
 
 const AppSocialNetwork = () => {
   return (
-    <BrowserRouter>
+    <HashRouter /* basename={process.env.PUBLIC_URL} */>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
