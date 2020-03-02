@@ -1,0 +1,47 @@
+
+.headImages {
+  padding: 1px;
+}
+
+.pageProfileContent {
+  padding: 10px;
+  display: flex;
+   
+}
+
+.contentProfileLeft {
+  width: 30%;
+}
+.contentProfileRight {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+justify-content: start ;
+padding-left: 20px;
+}
+
+.avaPrpfile {
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 3px rgb(167, 167, 167);
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imgProfile{
+  width: 100%;
+  height: auto;
+}
+
+
+.linkSocial {
+  margin: 20px;
+}
+
+.nameUser {
+  font-weight: bold;
+}

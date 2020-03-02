@@ -1,0 +1,30 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.userList{
+    color: #222222;
+}
+
+.massageList{
+    color: #656565;
+}
+
+.newMessageAdd {
+    width: 100%;
+       
+}
+
+.newMessageAddText {
+   
+    border: none;
+    width: 70%;
+    border-radius: 5px;
+}
+
+.newMessageAddButton {
+    border: none;
+    width: 25%;
+    border-radius: 5px;
+}

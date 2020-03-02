@@ -1,0 +1,10 @@
+.formSummaryError {
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
+}
+
+.footerContent{
+    color: #205684;
+    font-weight: bold;
+}

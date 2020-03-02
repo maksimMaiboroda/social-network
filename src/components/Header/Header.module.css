@@ -1,0 +1,57 @@
+.headerContainer{
+  max-width: 940px;
+  margin: auto;
+}
+
+.header {
+  grid-area: header;
+  background-color: rgb(35, 157, 194);
+  margin-bottom: 20px;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.loginBlock{
+  color: #fff;
+  font-weight: bold;
+}
+
+.loginButton{ 
+  width: 100%;
+  border: none;
+  line-height: 1.2rem;
+  padding: 0;
+  font-size: 1rem;
+  background: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-top: 1px solid #205684;
+  margin-top: 4px;
+}
+
+.loginButton:hover{
+  color: #205684;
+}
+
+.loginText{
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.loginText:hover{
+  color: #205684;
+}
