@@ -3,21 +3,23 @@ import LoginReduxForm from "./LoginForm/LoginForm";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/authReducer";
 import { Redirect } from "react-router-dom";
+import classes from "./Login.module.css";
 
-const Login = ({loginUser, isAuth}) => {
-  const onSubmit = ({email, password, rememberMe}) => {
-    loginUser({email, password, rememberMe});
+const Login = ({ loginUser, isAuth }) => {
+  const onSubmit = ({ email, password, rememberMe }) => {
+    loginUser({ email, password, rememberMe });
   };
- 
-  if (isAuth){
-    return <Redirect to={"/profile"}/>
+
+  if (isAuth) {
+    return <Redirect to={"/profile"} />;
   }
 
-
   return (
-    <div>
-      <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
+    <div className={classes.loginWrapp}>
+      <div className={classes.loginContent}>
+        <h1 className={classes.loginHeader}>Login</h1>
+        <LoginReduxForm onSubmit={onSubmit} />
+      </div>
     </div>
   );
 };
