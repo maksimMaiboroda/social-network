@@ -4,6 +4,7 @@ const ADD_POST = "profileReduser/ADD_POST";
 const SET_USER_PROFILE = "profileReduser/SET_USER_PROFILE";
 const SET_STATUS = "profileReduser/SET_STATUS";
 const DLETE_POST = "profileReduser/DLETE_POST";
+const SAVE_PHOTO_SUCCES = "profileReduser/SAVE_PHOTO_SUCCES";
 
 let initialState = {
   oldPostData: [
@@ -48,6 +49,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case SAVE_PHOTO_SUCCES: {
+      return {
+        ...state,
+        profile: {...state.profile, photos: action.photos}
+      };
+    }
+
     default:
       return state;
   }
@@ -71,6 +79,11 @@ export const setUserProfile = profile => ({
 export const setStatus = status => ({
   type: "profileReduser/SET_STATUS",
   status
+});
+
+export const savePhotoSucces = photos => ({
+  type: SAVE_PHOTO_SUCCES,
+  photos
 });
 
 export const getUserProfile = userId => {
@@ -97,6 +110,14 @@ export const updateStatus = status => {
       dispatch(setStatus(status));
     }
   };
+};
+
+export const savePhoto = file => async dispatch => {
+  let response = await profileAPI.savePhoto(file);
+
+  if (response.data.resultCode === 0) {
+    dispatch(savePhotoSucces(response.data.data.photos));
+  }
 };
 
 export default profileReducer;

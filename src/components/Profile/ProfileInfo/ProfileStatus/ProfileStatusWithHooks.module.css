@@ -1,8 +1,10 @@
 .statusContent {
     margin-top: 30px;
+    border-bottom: 1px solid #E7E8EC;
+    padding-bottom: 5px;
 }
 .status {
-    border-bottom: 1px solid #E7E8EC;
+    
     color: #828292;
 }
 

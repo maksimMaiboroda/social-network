@@ -1,28 +1,24 @@
 .formSummaryError {
-    border: 1px solid red;
-    padding: 5px;
-    color: red;
+  border: 1px solid red;
+  padding: 5px;
+  color: red;
 }
 
-.footerContent{
-    color: #205684;
-    font-weight: bold;
+.footerContent {
+  color: #205684;
+  font-weight: bold;
 }
 
 .loginInput {
-    border: none;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    box-shadow: 0 0 3px rgba(156, 146, 146, 0.5);
-}
-
-.loginCheckbox{
-    display: inline;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(156, 146, 146, 0.5);
 }
 
 .btnLogin {
-    background-color: #5181b8;
+  background-color: #5181b8;
   border-radius: 4px;
   border: none;
   padding: 5px 20px;
@@ -32,6 +28,13 @@
 }
 
 .btnContentLogin {
+  display: flex;
+  justify-content: center;
+}
+
+.loginCheckboxContainer{
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    color: #285473;
 }
