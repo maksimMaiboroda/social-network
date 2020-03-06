@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/preloader";
 import iconUserNoName from "../../../assets/img/iconUser.png";
-import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
-import ProfileData from "./ProfileDescription/ProfileData";
-import ProfileDataForm from "./ProfileDescription/ProfileDataForm";
+import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
+import ProfileData from "../ProfileDescription/ProfileData/ProfileData";
+import ProfileDataReduxForm from "../ProfileDescription/ProfileDataForm/ProfileDataForm";
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
   let [editMode, setEditMode] = useState(false);
@@ -13,11 +13,15 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
     return <Preloader />;
   }
 
-const onMainPhotoSelected = (e) => {
-  if (e.target.files.length){
-    savePhoto(e.target.files[0])
-  }
-}
+  const onMainPhotoSelected = e => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0]);
+    }
+  };
+
+  const onSubmit = (formData) => {
+    console.log(formData);
+  };
 
   return (
     <div className={classes.content}>
@@ -34,34 +38,26 @@ const onMainPhotoSelected = (e) => {
         <div className={classes.contentProfileRight}>
           <div className={classes.nameUser}>{profile.fullName}</div>
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
-          {/* {editMode ? ( */}
-          <ProfileData profile={profile} />
-          {/* ) : (
-            <ProfileDataForm profile={profile} />
-          )} */}
-          <div>
-            <span>Contacts: </span>
-            {Object.keys(profile.contacts).map(key => {
-              return (
-                <Contacts
-                  key={key}
-                  contactTitle={key}
-                  contactValue={profile.contacts[key]}
-                />
-              );
-            })}
-          </div>
+          {editMode ? (
+            <ProfileDataReduxForm
+            onSubmit={onSubmit}
+              profile={profile}
+              isOwner={isOwner}
+              goToEditMode={() => {
+                setEditMode(true);
+              }}
+            />
+          ) : (
+            <ProfileData
+              profile={profile}
+              isOwner={isOwner}
+              goToEditMode={() => {
+                setEditMode(true);
+              }}
+            />
+          )}
         </div>
       </div>
-    </div>
-  );
-};
-
-const Contacts = ({ contactTitle, contactValue }) => {
-  return (
-    <div>
-      <span>{contactTitle}: </span>
-      <span>{contactValue}</span>
     </div>
   );
 };
