@@ -6,7 +6,14 @@ import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 import ProfileData from "../ProfileDescription/ProfileData/ProfileData";
 import ProfileDataReduxForm from "../ProfileDescription/ProfileDataForm/ProfileDataForm";
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const ProfileInfo = ({
+  profile,
+  status,
+  updateStatus,
+  isOwner,
+  savePhoto,
+  saveProfile
+}) => {
   let [editMode, setEditMode] = useState(false);
 
   if (!profile) {
@@ -19,8 +26,9 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
     }
   };
 
-  const onSubmit = (formData) => {
-    console.log(formData);
+  const userId = 5840;
+  const onSubmit = formData => {
+    saveProfile(formData, userId);
   };
 
   return (
@@ -40,7 +48,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
           {editMode ? (
             <ProfileDataReduxForm
-            onSubmit={onSubmit}
+              onSubmit={onSubmit}
               profile={profile}
               isOwner={isOwner}
               goToEditMode={() => {

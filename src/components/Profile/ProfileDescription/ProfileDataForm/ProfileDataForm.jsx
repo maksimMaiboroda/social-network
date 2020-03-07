@@ -9,7 +9,7 @@ import { Input, Textarea } from "../../../common/FormsControls/FormsControls";
 
 const maxLength50 = maxLengthCreator(50);
 
-const ProfileDataForm = (handleSubmit, isOwner) => {
+const ProfileDataForm = ({ handleSubmit, isOwner, error }) => {
   return (
     <form onSubmit={handleSubmit}>
       {isOwner && (
@@ -21,39 +21,37 @@ const ProfileDataForm = (handleSubmit, isOwner) => {
       <div className={classes.profileDescriptionContainer}>
         <div className={classes.profileDescriptionContent}>
           <div>
-            <label>I'm looking for a job: </label>
-            <div>
-              <label>
-                <Field
-                  name="lookingForJob"
-                  component={Input}
-                  type="radio"
-                  value="Yes"
-                />{" "}
-                Yes
-              </label>
-              <label>
-                <Field
-                  name="lookingForJob"
-                  component={Input}
-                  type="radio"
-                  value="No"
-                />{" "}
-                No
-              </label>
-            </div>
+            <label>
+              <span>My full name: </span>
+              <Field
+                name="fullName"
+                component={Input}
+                type="input"
+                value="fullName"
+              />
+            </label></div>
+          <div>
+            <label>
+              <span>I'm looking for a job?: </span>
+              <Field
+                name="lookingForAJob"
+                component={Input}
+                type="checkbox"
+                value="Yes"
+              />
+            </label>
           </div>
         </div>
 
         <div className={classes.profileDescriptionContent}>
-          <span className={classes.profileField}>My professional skills:</span>
+          <span className={classes.profileField}>Сareer objective: </span>
 
           <Field
             className={classes.textarea}
             component={Textarea}
-            name="skills"
+            name="LookingForAJobDescription"
             validate={[required, maxLength50]}
-            placeholder="skills"
+            placeholder="LookingForAJobDescription"
           />
         </div>
 
@@ -62,7 +60,7 @@ const ProfileDataForm = (handleSubmit, isOwner) => {
           <Field
             className={classes.textarea}
             component={Textarea}
-            name="newMessageBody"
+            name="aboutMe"
             validate={[required, maxLength50]}
             placeholder="tell us about yourself"
           />

@@ -7,7 +7,7 @@ const ProfileData = props => {
     <div>
       {props.isOwner && (
         <div>
-          <button onClick={props.goToEditMode}></button>
+          <button onClick={props.goToEditMode}>Edit profile</button>
         </div>
       )}
 
@@ -32,7 +32,7 @@ const ProfileData = props => {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <span>Contacts: </span>
         {Object.keys(props.profile.contacts).map(key => {
           return (
@@ -43,7 +43,7 @@ const ProfileData = props => {
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

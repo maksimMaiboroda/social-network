@@ -65,6 +65,10 @@ export const profileAPI = {
         "Content-Type": "multipart/form-data"
       }
     });
+  },
+
+  saveProfile(formData) {
+    return instanse.put("profile", formData);
   }
 };
 
