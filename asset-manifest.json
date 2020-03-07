@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/my-prpject-/static/css/main.a5d0b969.chunk.css",
-    "main.js": "/my-prpject-/static/js/main.4010fdcc.chunk.js",
-    "main.js.map": "/my-prpject-/static/js/main.4010fdcc.chunk.js.map",
-    "runtime-main.js": "/my-prpject-/static/js/runtime-main.c79da27c.js",
-    "runtime-main.js.map": "/my-prpject-/static/js/runtime-main.c79da27c.js.map",
+    "main.js": "/my-prpject-/static/js/main.a2d0256c.chunk.js",
+    "main.js.map": "/my-prpject-/static/js/main.a2d0256c.chunk.js.map",
+    "runtime-main.js": "/my-prpject-/static/js/runtime-main.0c684464.js",
+    "runtime-main.js.map": "/my-prpject-/static/js/runtime-main.0c684464.js.map",
     "static/css/2.0a973afe.chunk.css": "/my-prpject-/static/css/2.0a973afe.chunk.css",
     "static/js/2.e3f265f5.chunk.js": "/my-prpject-/static/js/2.e3f265f5.chunk.js",
     "static/js/2.e3f265f5.chunk.js.map": "/my-prpject-/static/js/2.e3f265f5.chunk.js.map",
     "static/css/3.4a793acd.chunk.css": "/my-prpject-/static/css/3.4a793acd.chunk.css",
-    "static/js/3.c1c1e3c4.chunk.js": "/my-prpject-/static/js/3.c1c1e3c4.chunk.js",
-    "static/js/3.c1c1e3c4.chunk.js.map": "/my-prpject-/static/js/3.c1c1e3c4.chunk.js.map",
+    "static/js/3.b1c0b465.chunk.js": "/my-prpject-/static/js/3.b1c0b465.chunk.js",
+    "static/js/3.b1c0b465.chunk.js.map": "/my-prpject-/static/js/3.b1c0b465.chunk.js.map",
     "static/css/4.658f0e49.chunk.css": "/my-prpject-/static/css/4.658f0e49.chunk.css",
     "static/js/4.05aedde1.chunk.js": "/my-prpject-/static/js/4.05aedde1.chunk.js",
     "static/js/4.05aedde1.chunk.js.map": "/my-prpject-/static/js/4.05aedde1.chunk.js.map",
     "index.html": "/my-prpject-/index.html",
-    "precache-manifest.dbab9267945af7256466d919f19e678a.js": "/my-prpject-/precache-manifest.dbab9267945af7256466d919f19e678a.js",
+    "precache-manifest.dbf70614dd01c9af2577cb37989a257a.js": "/my-prpject-/precache-manifest.dbf70614dd01c9af2577cb37989a257a.js",
     "service-worker.js": "/my-prpject-/service-worker.js",
     "static/css/2.0a973afe.chunk.css.map": "/my-prpject-/static/css/2.0a973afe.chunk.css.map",
     "static/css/3.4a793acd.chunk.css.map": "/my-prpject-/static/css/3.4a793acd.chunk.css.map",
@@ -29,10 +29,10 @@
     "static/media/imgPageDevelopment.svg": "/my-prpject-/static/media/imgPageDevelopment.0427aa0e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c79da27c.js",
+    "static/js/runtime-main.0c684464.js",
     "static/css/2.0a973afe.chunk.css",
     "static/js/2.e3f265f5.chunk.js",
     "static/css/main.a5d0b969.chunk.css",
-    "static/js/main.4010fdcc.chunk.js"
+    "static/js/main.a2d0256c.chunk.js"
   ]
 }
