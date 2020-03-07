@@ -20,7 +20,7 @@ const ProfileData = props => {
         {props.profile.lookingForAJob && (
           <div className={classes.profileDescriptionContent}>
             <span className={classes.profileField}>
-              My professional skills:{" "}
+            Сareer objective::{" "}
             </span>
             {props.profile.lookingForAJobDescription}
           </div>

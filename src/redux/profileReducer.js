@@ -5,7 +5,6 @@ const SET_USER_PROFILE = "profileReduser/SET_USER_PROFILE";
 const SET_STATUS = "profileReduser/SET_STATUS";
 const DLETE_POST = "profileReduser/DLETE_POST";
 const SAVE_PHOTO_SUCCES = "profileReduser/SAVE_PHOTO_SUCCES";
-const SAVE_PROFILE_SUCCES = "profileReduser/SAVE_PROFILE_SUCCES";
 
 let initialState = {
   oldPostData: [
@@ -57,13 +56,6 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
-    case SAVE_PROFILE_SUCCES: {
-      return {
-        ...state,
-        profile: { ...state.profile, ...action.formData }
-      };
-    }
-
     default:
       return state;
   }
@@ -90,13 +82,8 @@ export const setStatus = status => ({
 });
 
 export const savePhotoSucces = photos => ({
-  type: SAVE_PHOTO_SUCCES,
+  type: "profileReduser/SAVE_PHOTO_SUCCES",
   photos
-});
-
-export const saveProfileSucces = formData => ({
-  type: SAVE_PROFILE_SUCCES,
-  formData
 });
 
 export const getUserProfile = userId => {
@@ -109,7 +96,7 @@ export const getUserProfile = userId => {
 
 export const getStatus = userId => {
   return async dispatch => {
-    let response = await profileAPI.getStatus(userId);
+    const response = await profileAPI.getStatus(userId);
 
     dispatch(setStatus(response.data));
   };
@@ -117,7 +104,7 @@ export const getStatus = userId => {
 
 export const updateStatus = status => {
   return async dispatch => {
-    let response = await profileAPI.updateStatus(status);
+    const response = await profileAPI.updateStatus(status);
 
     if (response.data.resultCode === 0) {
       dispatch(setStatus(status));
@@ -126,18 +113,20 @@ export const updateStatus = status => {
 };
 
 export const savePhoto = file => async dispatch => {
-  let response = await profileAPI.savePhoto(file);
+  const response = await profileAPI.savePhoto(file);
 
   if (response.data.resultCode === 0) {
     dispatch(savePhotoSucces(response.data.data.photos));
   }
 };
 
-export const saveProfile = (formData, userId) => async dispatch => {
-  let response = await profileAPI.saveProfile(formData, userId);
+export const saveProfile = profile => async (dispatch, getState) => {
+  const userId = getState().auth.userId;
+
+  const response = await profileAPI.saveProfile(profile);
 
   if (response.data.resultCode === 0) {
-    dispatch(saveProfileSucces(formData));
+    dispatch(getUserProfile(userId));
   }
 };
 

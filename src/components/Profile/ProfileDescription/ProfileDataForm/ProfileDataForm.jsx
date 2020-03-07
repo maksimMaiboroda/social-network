@@ -49,9 +49,8 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error }) => {
           <Field
             className={classes.textarea}
             component={Textarea}
-            name="LookingForAJobDescription"
+            name="lookingForAJobDescription"
             validate={[required, maxLength50]}
-            placeholder="LookingForAJobDescription"
           />
         </div>
 
@@ -62,7 +61,6 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error }) => {
             component={Textarea}
             name="aboutMe"
             validate={[required, maxLength50]}
-            placeholder="tell us about yourself"
           />
         </div>
       </div>

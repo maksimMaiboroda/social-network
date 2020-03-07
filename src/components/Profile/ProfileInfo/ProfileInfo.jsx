@@ -14,7 +14,7 @@ const ProfileInfo = ({
   savePhoto,
   saveProfile
 }) => {
-  let [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   if (!profile) {
     return <Preloader />;
@@ -29,6 +29,7 @@ const ProfileInfo = ({
   const userId = 5840;
   const onSubmit = formData => {
     saveProfile(formData, userId);
+    setEditMode(false);
   };
 
   return (
@@ -48,8 +49,8 @@ const ProfileInfo = ({
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
           {editMode ? (
             <ProfileDataReduxForm
+              initialValues={profile}
               onSubmit={onSubmit}
-              profile={profile}
               isOwner={isOwner}
               goToEditMode={() => {
                 setEditMode(true);

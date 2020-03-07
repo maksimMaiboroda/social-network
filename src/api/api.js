@@ -67,8 +67,8 @@ export const profileAPI = {
     });
   },
 
-  saveProfile(formData) {
-    return instanse.put("profile", formData);
+  saveProfile(profile) {
+    return instanse.put("profile", profile);
   }
 };
 
