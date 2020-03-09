@@ -4,7 +4,7 @@ import { Input } from "../../common/FormsControls/FormsControls";
 import { required } from "../../../utils/validators/validarion";
 import classes from "./LoginForm.module.css";
 
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -39,6 +39,15 @@ const LoginForm = ({ handleSubmit, error }) => {
       </div>
 
       {error && <div className={classes.formSummaryError}>{error}</div>}
+
+      {captchaUrl && <img src={captchaUrl}></img>}
+      {captchaUrl && 
+      <Field
+      name="captcha"
+      component={Input}
+      type="input"
+      placeholder="captcha"
+    /> }
 
       <div className={classes.btnContentLogin}>
         <button className={classes.btnLogin} type="submit">

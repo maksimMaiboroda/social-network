@@ -5,9 +5,9 @@ import { loginUser } from "../../redux/authReducer";
 import { Redirect } from "react-router-dom";
 import classes from "./Login.module.css";
 
-const Login = ({ loginUser, isAuth }) => {
-  const onSubmit = ({ email, password, rememberMe }) => {
-    loginUser({ email, password, rememberMe });
+const Login = ({ loginUser, isAuth, captchaUrl }) => {
+  const onSubmit = ({ email, password, rememberMe, captcha }) => {
+    loginUser({ email, password, rememberMe, captcha });
   };
 
   if (isAuth) {
@@ -18,14 +18,15 @@ const Login = ({ loginUser, isAuth }) => {
     <div className={classes.loginWrapp}>
       <div className={classes.loginContent}>
         <h1 className={classes.loginHeader}>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
       </div>
     </div>
   );
 };
 
 let mapStateToProps = state => ({
-  isAuth: state.auth.isAuth
+  isAuth: state.auth.isAuth,
+  captchaUrl: state.auth.captchaUrl
 });
 
 export default connect(mapStateToProps, { loginUser })(Login);

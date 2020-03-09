@@ -74,14 +74,25 @@ export const profileAPI = {
 
 export const authAPI = {
   me() {
-    return instanse.get(`auth/me`).then(response => response.data);
+    return instanse.get("auth/me").then(response => response.data);
   },
 
-  login({ email, password, rememberMe }) {
-    return instanse.post("auth/login", { email, password, rememberMe });
+  login({ email, password, rememberMe, captcha = null }) {
+    return instanse.post("auth/login", {
+      email,
+      password,
+      rememberMe,
+      captcha
+    });
   },
 
   logout() {
     return instanse.delete("auth/login", { data: {} });
+  }
+};
+
+export const securityAPI = {
+  getCaptchaUrl() {
+    return instanse.get("security/get-captcha-url");
   }
 };
