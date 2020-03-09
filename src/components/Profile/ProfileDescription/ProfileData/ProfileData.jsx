@@ -32,7 +32,7 @@ const ProfileData = props => {
         </div>
       </div>
 
-      {/* <div>
+      <div>
         <span>Contacts: </span>
         {Object.keys(props.profile.contacts).map(key => {
           return (
@@ -43,7 +43,7 @@ const ProfileData = props => {
             />
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 };

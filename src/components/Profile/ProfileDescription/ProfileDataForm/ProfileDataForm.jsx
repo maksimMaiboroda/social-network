@@ -9,14 +9,14 @@ import { Input, Textarea } from "../../../common/FormsControls/FormsControls";
 
 const maxLength50 = maxLengthCreator(50);
 
-const ProfileDataForm = ({ handleSubmit, isOwner, error }) => {
+const ProfileDataForm = ({ handleSubmit, isOwner, error, profile }) => {
   return (
     <form onSubmit={handleSubmit}>
-      {isOwner && (
-        <div>
-          <button>save</button>
-        </div>
-      )}
+      <div>
+        <button>save</button>
+      </div>
+
+      {error && <div className={classes.formSummaryError}>{error}</div>}
 
       <div className={classes.profileDescriptionContainer}>
         <div className={classes.profileDescriptionContent}>
@@ -29,7 +29,8 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error }) => {
                 type="input"
                 value="fullName"
               />
-            </label></div>
+            </label>
+          </div>
           <div>
             <label>
               <span>I'm looking for a job?: </span>
@@ -65,18 +66,20 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error }) => {
         </div>
       </div>
 
-      {/* <div>
+      <div>
         <span>Contacts: </span>
-        {Object.keys(props.profile.contacts).map(key => {
+        {Object.keys(profile.contacts).map(key => {
           return (
-            <Contacts
+            <Field
+              name={"contacts." + key}
               key={key}
-              contactTitle={key}
-              contactValue={props.profile.contacts[key]}
-            />
+              placeholder={key}
+              component={Input}
+              type="input"
+            ></Field>
           );
         })}
-      </div> */}
+      </div>
     </form>
   );
 };

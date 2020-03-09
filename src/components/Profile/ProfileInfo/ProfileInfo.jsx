@@ -12,7 +12,9 @@ const ProfileInfo = ({
   updateStatus,
   isOwner,
   savePhoto,
-  saveProfile
+  saveProfile,
+  editModeSaveProfileDesc,
+  saveProfileDesc
 }) => {
   const [editMode, setEditMode] = useState(false);
 
@@ -26,10 +28,13 @@ const ProfileInfo = ({
     }
   };
 
-  const userId = 5840;
   const onSubmit = formData => {
-    saveProfile(formData, userId);
-    setEditMode(false);
+    saveProfile(formData);
+    //setEditMode(false);
+  };
+
+  const goToEditMode = () => {
+    saveProfileDesc(true);
   };
 
   return (
@@ -47,22 +52,19 @@ const ProfileInfo = ({
         <div className={classes.contentProfileRight}>
           <div className={classes.nameUser}>{profile.fullName}</div>
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
-          {editMode ? (
+          {editModeSaveProfileDesc ? (
             <ProfileDataReduxForm
               initialValues={profile}
+              profile={profile}
               onSubmit={onSubmit}
               isOwner={isOwner}
-              goToEditMode={() => {
-                setEditMode(true);
-              }}
+              goToEditMode={goToEditMode}
             />
           ) : (
             <ProfileData
               profile={profile}
               isOwner={isOwner}
-              goToEditMode={() => {
-                setEditMode(true);
-              }}
+              goToEditMode={goToEditMode}
             />
           )}
         </div>

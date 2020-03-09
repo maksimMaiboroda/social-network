@@ -8,9 +8,10 @@ const MyPosts = React.memo(props => {
     .reverse()
     .map(post => (
       <Posts
+
         message={post.message}
         likesCount={post.likesCount}
-        kei={post.id}
+        key={post.id}
       />
     ));
 

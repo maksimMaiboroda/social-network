@@ -7,6 +7,8 @@ const Profile = props => {
   return (
     <div>
       <ProfileInfo
+      saveProfileDesc={props.saveProfileDesc}
+       editModeSaveProfileDesc={props.editModeSaveProfileDesc}
       userId={props.userId}
       saveProfile={props.saveProfile}
       savePhoto={props.savePhoto}

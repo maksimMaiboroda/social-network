@@ -14,7 +14,7 @@ const Posts = props => {
          
             {props.likesCount}
             <span className={classes.likesHeart}>
-              <i class="fa fa-heart" aria-hidden="true"></i>
+              <i className="fa fa-heart" aria-hidden="true"></i>
             </span>
           
         </a>

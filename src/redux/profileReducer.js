@@ -1,10 +1,12 @@
 import { profileAPI } from "../api/api";
+import { stopSubmit } from "redux-form";
 
 const ADD_POST = "profileReduser/ADD_POST";
 const SET_USER_PROFILE = "profileReduser/SET_USER_PROFILE";
 const SET_STATUS = "profileReduser/SET_STATUS";
 const DLETE_POST = "profileReduser/DLETE_POST";
 const SAVE_PHOTO_SUCCES = "profileReduser/SAVE_PHOTO_SUCCES";
+const SAVE_PROFILE_DESC = "profileReduser/SAVE_PROFILE_DESC";
 
 let initialState = {
   oldPostData: [
@@ -12,7 +14,8 @@ let initialState = {
     { id: 2, message: "It's my first post", likesCount: 11 }
   ],
   profile: null,
-  status: ""
+  status: "",
+  editModeSaveProfileDesc: false
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -56,6 +59,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case SAVE_PROFILE_DESC: {
+      return {
+        ...state,
+        editModeSaveProfileDesc: action.switchEditMode
+      };
+    }
+
     default:
       return state;
   }
@@ -84,6 +94,11 @@ export const setStatus = status => ({
 export const savePhotoSucces = photos => ({
   type: "profileReduser/SAVE_PHOTO_SUCCES",
   photos
+});
+
+export const saveProfileDesc = (switchEditMode) => ({
+  type: "profileReduser/SAVE_PROFILE_DESC",
+  switchEditMode
 });
 
 export const getUserProfile = userId => {
@@ -127,6 +142,13 @@ export const saveProfile = profile => async (dispatch, getState) => {
 
   if (response.data.resultCode === 0) {
     dispatch(getUserProfile(userId));
+    dispatch(saveProfileDesc(false));
+  } else {
+    dispatch(stopSubmit("editProfile", { _error: response.data.messages[0] }));
+
+    /*     stopSubmit("editProfile", {
+      contacts: { facebook: response.data.messages[0] }
+    }) */
   }
 };
 
