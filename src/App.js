@@ -7,7 +7,14 @@ import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import Muzic from "./components/Muzic/Muzic";
 import Settings from "./components/Settings/Settings";
-import { HashRouter, Route, withRouter, BrowserRouter } from "react-router-dom";
+import {
+  HashRouter,
+  Route,
+  withRouter,
+  BrowserRouter,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Login from "./components/Login/Login";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
@@ -38,16 +45,24 @@ class App extends React.Component {
         <div className={classes.contentWrapper}>
           <Navbar />
           <div className={classes.appWrapperContent}>
-            <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-            <Route
-              path="/profile/:userId?"
-              render={withSuspense(ProfileContainer)}
-            />
-            <Route path="/users" render={() => <UsersContainer />} />
-            <Route path="/news" component={News} />
-            <Route path="/muzic" component={Muzic} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/login" component={Login} />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => <Redirect to={"/login"} />}
+                component={Login}
+              />
+              <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+              <Route
+                path="/profile/:userId?"
+                render={withSuspense(ProfileContainer)}
+              />
+              <Route path="/users" render={() => <UsersContainer />} />
+              <Route path="/news" component={News} />
+              <Route path="/muzic" component={Muzic} />
+              <Route path="/settings" component={Settings} />
+              <Route path="/login" component={Login} />
+            </Switch>
           </div>
         </div>
         <Footer />
