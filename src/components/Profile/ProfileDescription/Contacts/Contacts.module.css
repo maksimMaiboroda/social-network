@@ -1,0 +1,13 @@
+.contactsContainer {
+  margin-top: 5px;
+}
+
+.contactsContent {
+  color: #828282;
+}
+
+.contactsValue {
+  margin-top: 5px;
+  font-size: .9rem;
+  color: #2a5885;
+}

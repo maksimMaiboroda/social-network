@@ -42,12 +42,25 @@ const ProfileInfo = ({
       <div className={classes.pageProfileContent}>
         <div className={classes.contentProfileLeft}>
           <div className={classes.avaPrpfile}>
+            
             <img
               className={classes.imgProfile}
               src={profile.photos.large || iconUserNoName}
             ></img>
+            {isOwner && (
+            <div className={classes.inputfileContainer}>
+              <input
+                type="file"
+                name="file"
+                id="file"
+                className={classes.inputfile}
+                onChange={onMainPhotoSelected}
+              />
+              <label for="file">Change photo</label>
+            </div>
+          )}
           </div>
-          {isOwner && <input type="file" onChange={onMainPhotoSelected} />}
+          
         </div>
         <div className={classes.contentProfileRight}>
           <div className={classes.nameUser}>{profile.fullName}</div>

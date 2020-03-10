@@ -1,4 +1,3 @@
-
 .headImages {
   padding: 1px;
 }
@@ -6,7 +5,6 @@
 .pageProfileContent {
   padding: 10px;
   display: flex;
-   
 }
 
 .contentProfileLeft {
@@ -16,8 +14,8 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-justify-content: start ;
-padding-left: 20px;
+  justify-content: start;
+  padding-left: 20px;
 }
 
 .avaPrpfile {
@@ -30,13 +28,13 @@ padding-left: 20px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
 }
 
-.imgProfile{
+.imgProfile {
   width: 100%;
   height: auto;
 }
-
 
 .linkSocial {
   margin: 20px;
@@ -44,4 +42,45 @@ padding-left: 20px;
 
 .nameUser {
   font-weight: bold;
+}
+
+.inputfileContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 1em;
+  padding: 5px 8px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  background-color: #5181b8;
+  display: inline-block;
+  opacity: .6;
+}
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #239dc2;
+  opacity: .9;
+}
+
+.inputfile + label {
+  cursor: pointer; /* "hand" cursor */
 }
