@@ -13,7 +13,7 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error, profile }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <button>save</button>
+        <button className={classes.btnProfileDesc}>save</button>
       </div>
 
       {error && <div className={classes.formSummaryError}>{error}</div>}
@@ -22,8 +22,9 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error, profile }) => {
         <div className={classes.profileDescriptionContent}>
           <div>
             <label>
-              <span>My full name: </span>
+              <span className={classes.profileField}>My full name: </span>
               <Field
+                className={classes.input}
                 name="fullName"
                 component={Input}
                 type="input"
@@ -33,7 +34,9 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error, profile }) => {
           </div>
           <div>
             <label>
-              <span>I'm looking for a job?: </span>
+              <span className={classes.profileField}>
+                I'm looking for a job?:{" "}
+              </span>
               <Field
                 name="lookingForAJob"
                 component={Input}
@@ -71,6 +74,7 @@ const ProfileDataForm = ({ handleSubmit, isOwner, error, profile }) => {
         {Object.keys(profile.contacts).map(key => {
           return (
             <Field
+              className={classes.input}
               name={"contacts." + key}
               key={key}
               placeholder={key}

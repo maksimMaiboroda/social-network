@@ -9,15 +9,24 @@
 }
 
 .profileField {
-  color: #828282;
+  color:  #464545;
 }
 
 .btnProfileDesc {
   margin-top: 10px;
   background-color: #5181b8;
   border-radius: 4px;
+  min-width: 100px;
+  font-size: 0.8rem;
   border: none;
-  padding: 5px 8px;
+  padding: 4px 6px;
   color: #fff;
   font-weight: bold;
+  border: 1px solid #5181b8;
+}
+
+.btnProfileDesc:hover {
+  background-color: #fff;
+  cursor: pointer;
+  color: #5181b8;
 }

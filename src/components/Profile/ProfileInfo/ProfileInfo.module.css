@@ -73,12 +73,13 @@
   color: white;
   background-color: #5181b8;
   display: inline-block;
-  opacity: .6;
+  opacity: 0.5;
+    transition: opacity .13s ease-out;
 }
 .inputfile:focus + label,
 .inputfile + label:hover {
   background-color: #239dc2;
-  opacity: .9;
+  opacity: 1;
 }
 
 .inputfile + label {
