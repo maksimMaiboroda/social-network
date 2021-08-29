@@ -9,12 +9,11 @@ let User = ({ user, followingInProgress, follow, unfollow }) => {
       <div className={classes.avatarContent}>
         <div className={classes.avatarPhotoWrapper}>
           <NavLink to={"/profile/" + user.id}>
-            <img
-              src={
-                user.photos.small != null ? user.photos.small : iconUserNoName
-              }
-              className={classes.avatarPhoto}
-            ></img>
+            <img 
+                src={ user.photos.small != null ? user.photos.small : iconUserNoName}
+                className={classes.avatarPhoto}
+                alt=''
+            />
           </NavLink>
         </div>
         <div>
@@ -46,13 +45,10 @@ let User = ({ user, followingInProgress, follow, unfollow }) => {
           <div className={classes.userDataLeft}>
             <div className={classes.userFullName}>
               <span className={classes.name}>{user.name}</span>
-              {/* <span className={classes.surname}>{user.fulName.surname}</span> */}
             </div>
             <div className={classes.userStatus}>{user.status}</div>
           </div>
           <div className={classes.userDataRight}>
-            {/* <div className={classes.userDataCountry}>{user.location.country}</div>
-            <div className={classes.userDataCity}>{user.location.city}</div> */}
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
-import React from "react";
-import classes from "./Dialogs.module.css";
-import UserItem from "./UserItem/UserItem";
-import UserMessageItem from "./UserMessageItem/UserMessageItem";
-import { Redirect } from "react-router-dom";
+import React               from "react";
+import classes             from "./Dialogs.module.css";
+import UserItem            from "./UserItem/UserItem";
+import UserMessageItem     from "./UserMessageItem/UserMessageItem";
 import NewMessageFormRedux from "./NewMessageForm/NewMessageForm";
 
 const Dialogs = props => {

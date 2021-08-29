@@ -1,8 +1,8 @@
-import React from "react";
+import React                from "react";
 import { Field, reduxForm } from "redux-form";
-import { Input } from "../../common/FormsControls/FormsControls";
-import { required } from "../../../utils/validators/validarion";
-import classes from "./LoginForm.module.css";
+import { Input }            from "../../common/FormsControls/FormsControls";
+import { required }         from "../../../utils/validators/validarion";
+import classes              from "./LoginForm.module.css";
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
@@ -40,7 +40,7 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
 
       {error && <div className={classes.formSummaryError}>{error}</div>}
 
-      {captchaUrl && <img src={captchaUrl}></img>}
+      {captchaUrl && <img src={captchaUrl} alt=''/>}
       {captchaUrl && 
       <Field
       name="captcha"
