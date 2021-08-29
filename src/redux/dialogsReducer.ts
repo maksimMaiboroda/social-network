@@ -1,6 +1,14 @@
+import { Dialog, Message } from '../types'
+
 const ADD_MESSAGE = "dialogsReduser/ADD_MESSAGE";
 
-let initialState = {
+interface InitialState {
+    oldDialogsData : Dialog[]
+    oldMessageData : Message[]
+    newMessageText : string
+}
+
+let initialState: InitialState = {
   oldDialogsData: [
     { urlD: 1, userAva: "img", userName: "Viktor" },
     { urlD: 2, userAva: "img", userName: "Andrei" },
@@ -41,7 +49,7 @@ let initialState = {
   newMessageText: ""
 };
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action: any): InitialState => {
   switch (action.type) {
     case ADD_MESSAGE: {
       return {
@@ -61,8 +69,13 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessageActionCreator = text => ({
-  type: "dialogsReduser/ADD_MESSAGE",
+interface AddMessageActionType {
+    type           : typeof ADD_MESSAGE,
+    newMessageText : string
+}
+
+export const addMessageActionCreator = (text: string): AddMessageActionType => ({
+  type: ADD_MESSAGE,
   newMessageText: text
 });
 

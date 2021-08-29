@@ -1,5 +1,4 @@
 import * as axios from "axios";
-import { savePhoto } from "../redux/profileReducer";
 
 const instanse = axios.create({
   withCredentials: true,
