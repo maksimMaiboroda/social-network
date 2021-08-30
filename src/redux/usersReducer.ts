@@ -1,6 +1,6 @@
 import { userAPI }             from "../api/api";
 import { updateObjectInArray } from "../utils/objectHelpers";
-import { User }                from '../types'
+import { UserType }            from '../types'
 
 const FOLLOW                       = "usersReduser/FOLLOW";
 const UNFOLLOW                     = "usersReduser/UNFOLLOW";
@@ -10,8 +10,8 @@ const SET_TOTAL_USERS_COUNT        = "usersReduser/SET_TOTAL_USERS_COUNT";
 const TOGGLE_IS_FETCHING           = "usersReduser/TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "usersReduser/TOGGLE_IS_FOLLOWING_PROGRESS";
 
-let initialState = {
-  users               : [] as Array<User>,
+const initialState = {
+  users               : [] as Array<UserType>,
   pageSize            : 10,
   totalUsersCount     : 20,
   currentPage         : 1,
@@ -86,10 +86,10 @@ export const unhallowSuccess = (userId: number): UnhallowSuccessActionType => ({
 
 interface SetUsersActionType {
     type  : typeof SET_USERS
-    users : User[]
+    users : UserType[]
 }
 
-export const setUsers = (users: User[]): SetUsersActionType => ({ 
+export const setUsers = (users: UserType[]): SetUsersActionType => ({ 
     type: SET_USERS, 
     users 
 });
@@ -124,7 +124,7 @@ export const toggleIsFetching = (isFetching: boolean): ToggleIsFetchingActionTyp
   isFetching
 });
 
-interface ToggleFollowingProgressActionType {
+export interface ToggleFollowingProgressActionType {
     type       : typeof TOGGLE_IS_FOLLOWING_PROGRESS
     isFetching : boolean
     userId     : number
@@ -141,7 +141,7 @@ export const requstUsers = (page: number, currentPage: number) => {
     dispatch(toggleIsFetching(true));
     dispatch(setCurrentPage(page));
 
-    let data = await userAPI.getUsers(page, currentPage);
+    const data = await userAPI.getUsers(page, currentPage);
     dispatch(toggleIsFetching(false));
     dispatch(setUsers(data.items));
     dispatch(setTotalUsersCount(data.totalCount));
@@ -155,7 +155,7 @@ const followUnfollowFlow = async (
   actionCreator : any
 ) => {
   dispatch(toggleFollowingProgress(true, userId));
-  let data = await apiMethod(userId);
+  const data = await apiMethod(userId);
 
   if (data.resultCode === 0) {
     dispatch(actionCreator(userId));

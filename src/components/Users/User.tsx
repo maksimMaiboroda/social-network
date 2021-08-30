@@ -1,9 +1,17 @@
-import React from "react";
-import classes from "./Users.module.css";
+import React          from "react";
+import classes        from "./Users.module.css";
 import iconUserNoName from "../../assets/img/iconUser.png";
-import { NavLink } from "react-router-dom";
+import { UserType }   from '../../types'
+import { NavLink }    from "react-router-dom";
 
-let User = ({ user, followingInProgress, follow, unfollow }) => {
+interface Props {
+    user                : UserType
+    followingInProgress : Array<number>
+    follow              : (userId: number) => void
+    unfollow            : (userId: number) => void
+}
+
+const User: React.FC<Props> = ({ user, followingInProgress, follow, unfollow }) => {
   return (
     <div className={classes.user}>
       <div className={classes.avatarContent}>

@@ -7,27 +7,28 @@ interface Props {
     pageSize        : number
     currentPage     : number
     onPageChanged   : (pageNumber: number) => void
-    portionSize     : number
+    portionSize?    : number
 }
 
-const Paginator: React.FC<Props> = ({
+const Paginator: React.FC<Props> = (props) => {
+  const {
     totalItemsCount,
     pageSize,
     currentPage,
     onPageChanged,
     portionSize = 5
-}) => {
-  let pageCount = Math.ceil(totalItemsCount / pageSize);
+  }                          = props;
+  const pageCount            = Math.ceil(totalItemsCount / pageSize);
+  const pages: Array<number> = [];
 
-  let pages: Array<number> = [];
   for (let i = 1; i <= pageCount; i++) {
     pages.push(i);
   }
 
-  let portionCount = Math.ceil(pageCount / portionSize);
-  let [portionNumber, setPortionNumber] = useState(1);
-  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
-  let rightPortionPageNumber = portionNumber * portionSize;
+  const portionCount                      = Math.ceil(pageCount / portionSize);
+  const [portionNumber, setPortionNumber] = useState<number>(1);
+  const leftPortionPageNumber             = (portionNumber - 1) * portionSize + 1;
+  const rightPortionPageNumber            = portionNumber * portionSize;
 
   return (
     <div className={classes.paginator}>

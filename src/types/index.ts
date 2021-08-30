@@ -40,7 +40,7 @@ export interface Profile {
     photos                    : Photos | null
 }
 
-export interface User {
+export interface UserType {
     id       : number
     name     : string
     status   : string
