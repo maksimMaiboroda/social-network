@@ -1,20 +1,27 @@
-import React from "react";
-import classes from "./Users.module.css";
+import React          from "react";
+import classes        from "./Users.module.css";
 import iconUserNoName from "../../assets/img/iconUser.png";
-import { NavLink } from "react-router-dom";
+import { UserType }   from '../../types'
+import { NavLink }    from "react-router-dom";
 
-let User = ({ user, followingInProgress, follow, unfollow }) => {
+interface Props {
+    user                : UserType
+    followingInProgress : Array<number>
+    follow              : (userId: number) => void
+    unfollow            : (userId: number) => void
+}
+
+const User: React.FC<Props> = ({ user, followingInProgress, follow, unfollow }) => {
   return (
     <div className={classes.user}>
       <div className={classes.avatarContent}>
         <div className={classes.avatarPhotoWrapper}>
           <NavLink to={"/profile/" + user.id}>
-            <img
-              src={
-                user.photos.small != null ? user.photos.small : iconUserNoName
-              }
-              className={classes.avatarPhoto}
-            ></img>
+            <img 
+                src={ user.photos.small != null ? user.photos.small : iconUserNoName}
+                className={classes.avatarPhoto}
+                alt=''
+            />
           </NavLink>
         </div>
         <div>
@@ -46,13 +53,10 @@ let User = ({ user, followingInProgress, follow, unfollow }) => {
           <div className={classes.userDataLeft}>
             <div className={classes.userFullName}>
               <span className={classes.name}>{user.name}</span>
-              {/* <span className={classes.surname}>{user.fulName.surname}</span> */}
             </div>
             <div className={classes.userStatus}>{user.status}</div>
           </div>
           <div className={classes.userDataRight}>
-            {/* <div className={classes.userDataCountry}>{user.location.country}</div>
-            <div className={classes.userDataCity}>{user.location.city}</div> */}
           </div>
         </div>
       </div>

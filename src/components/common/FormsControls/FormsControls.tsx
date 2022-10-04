@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "./FormsControls.module.css";
 
-const FormControl = ({ input, meta, child, ...props }) => {
+interface PropsFormControl {
+    input: object,
+    meta: {
+        touched: boolean,
+        error: string
+    }
+}
+
+const FormControl = ({ input, meta, ...props }: React.PropsWithChildren<PropsFormControl>) => { 
   const hasError = meta.touched && meta.error;
   return (
     <div className={styles.formControl + " " + (hasError ? styles.error : "")}>
@@ -12,8 +20,8 @@ const FormControl = ({ input, meta, child, ...props }) => {
   );
 };
 
-export const Textarea = props => {
-  const { input, meta, child, ...restProps } = props;
+export const Textarea = (props: React.PropsWithChildren<PropsFormControl>) => {
+  const { input, meta, ...restProps } = props;
   return (
     <FormControl {...props}>
       <textarea {...input} {...restProps} />
@@ -21,8 +29,8 @@ export const Textarea = props => {
   );
 };
 
-export const Input = props => {
-  const { input, meta, child, ...restProps } = props;
+export const Input = (props: React.PropsWithChildren<PropsFormControl>) => {
+  const { input, meta, ...restProps } = props;
   return (
     <FormControl {...props}>
       <input {...input} {...restProps} />

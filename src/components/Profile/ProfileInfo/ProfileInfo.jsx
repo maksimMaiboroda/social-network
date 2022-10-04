@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import classes from "./ProfileInfo.module.css";
-import Preloader from "../../common/preloader/preloader";
-import iconUserNoName from "../../../assets/img/iconUser.png";
+import React                  from "react";
+import classes                from "./ProfileInfo.module.css";
+import Preloader              from "../../common/preloader/preloader";
+import iconUserNoName         from "../../../assets/img/iconUser.png";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
-import ProfileData from "../ProfileDescription/ProfileData/ProfileData";
-import ProfileDataReduxForm from "../ProfileDescription/ProfileDataForm/ProfileDataForm";
+import ProfileData            from "../ProfileDescription/ProfileData/ProfileData";
+import ProfileDataReduxForm   from "../ProfileDescription/ProfileDataForm/ProfileDataForm";
 
 const ProfileInfo = ({
   profile,
@@ -16,7 +16,7 @@ const ProfileInfo = ({
   editModeSaveProfileDesc,
   saveProfileDesc
 }) => {
-  const [editMode, setEditMode] = useState(false);
+//   const [editMode, setEditMode] = useState(false);
 
   if (!profile) {
     return <Preloader />;
@@ -46,7 +46,8 @@ const ProfileInfo = ({
             <img
               className={classes.imgProfile}
               src={profile.photos.large || iconUserNoName}
-            ></img>
+              alt=''
+            />
             {isOwner && (
             <div className={classes.inputfileContainer}>
               <input
