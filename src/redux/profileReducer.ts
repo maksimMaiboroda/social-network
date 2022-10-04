@@ -1,6 +1,11 @@
-import { profileAPI }             from "../api/api";
-import { stopSubmit }             from "redux-form";
-import { Photos, Post, Profile }  from '../types'
+import { profileAPI } from "../api/profile";
+import { stopSubmit } from "redux-form";
+import { 
+    Photos, 
+    Post, 
+    Profile, 
+    ResultCodes 
+}                     from '../types'
 
 const ADD_POST           = "profileReduser/ADD_POST";
 const SET_USER_PROFILE   = "profileReduser/SET_USER_PROFILE";
@@ -162,7 +167,7 @@ export const updateStatus = (status: string) => {
   return async (dispatch: any) => {
     const response = await profileAPI.updateStatus(status);
 
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodes.Success) {
       dispatch(setStatus(status));
     }
   };
@@ -171,7 +176,7 @@ export const updateStatus = (status: string) => {
 export const savePhoto = (file: any) => async (dispatch: any) => {
   const response = await profileAPI.savePhoto(file);
 
-  if (response.data.resultCode === 0) {
+  if (response.data.resultCode === ResultCodes.Success) {
     dispatch(savePhotoSuccess(response.data.data.photos));
   }
 };
@@ -181,7 +186,7 @@ export const saveProfile = (profile: Profile) => async (dispatch: any, getState:
 
   const response = await profileAPI.saveProfile(profile);
 
-  if (response.data.resultCode === 0) {
+  if (response.data.resultCode === ResultCodes.Success ) {
     dispatch(getUserProfile(userId));
     dispatch(saveProfileDesc(false));
   } else {

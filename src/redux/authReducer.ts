@@ -1,5 +1,7 @@
-import { authAPI, securityAPI } from "../api/api";
-import { stopSubmit }           from "redux-form";
+import { securityAPI }                     from "../api/security";
+import { authAPI }                         from "../api/auth";
+import { stopSubmit }                      from "redux-form";
+import { ResultCodes, ResultCodesCaptcha } from "../types";
 
 const SET_USER_DATA           = "authReduser/SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCESS = "authReduser/GET_CAPTCHA_URL";
@@ -74,19 +76,19 @@ export const setAuthCaptchaUrl = (captchaUrl: string): CaptchaUrlActionType => (
 
 export const getAuthUserData = () => (dispatch: any) => {
   return authAPI.me().then((data: any) => {
-    if (data.resultCode === 0) {
+    if (data.resultCode === ResultCodes.Success) {
       let { id, login, email } = data.data;
       dispatch(setAuthUserData(id, email, login, true));
     }
   });
 };
 
-export const loginUser = (email: string, password: string, rememberMe: boolean, captcha: any) => (dispatch: any) => {
+export const loginUser = (email: string, password: string, rememberMe: boolean, captcha: string) => (dispatch: any) => {
   authAPI.login({email, password, rememberMe, captcha}).then((response: any) => {
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodes.Success) {
       dispatch(getAuthUserData());
     } else {
-      if (response.data.resultCode === 10) {
+      if (response.data.resultCode === ResultCodesCaptcha.CaptchaIsRequired) {
         dispatch(getCaptcha());
       }
       let messages =
@@ -101,14 +103,14 @@ export const loginUser = (email: string, password: string, rememberMe: boolean, 
 export const logout = () => async (dispatch: any) => {
   let response = await authAPI.logout();
 
-  if (response.data.resultCode === 0) {
+  if (response.data.resultCode === ResultCodes.Success) {
     dispatch(setAuthUserData(null, null, null, false));
   }
 };
 
 export const getCaptcha = () => async (dispatch: any) => {
-  let response = await securityAPI.getCaptchaUrl();
-  const captchaUrl = response.data.url;
+  let data  = await securityAPI.getCaptchaUrl();
+  const captchaUrl = data.url;
   dispatch(setAuthCaptchaUrl(captchaUrl));
 };
 
