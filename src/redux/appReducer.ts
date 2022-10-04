@@ -28,7 +28,7 @@ interface InitializedSuccessAction {
 }
 
 export const initializedSuccess = (): InitializedSuccessAction => ({
-  type: "appReduser/INITIALIZATION_SUCCESS"
+  type: INITIALIZATION_SUCCESS
 });
 
 export const initializedApp = () => (dispatch: any) => {
