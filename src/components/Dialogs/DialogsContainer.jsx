@@ -1,8 +1,8 @@
-import { addMessageActionCreator } from "../../redux/dialogsReducer";
-import Dialogs                     from "./Dialogs";
-import { connect }                 from "react-redux";
-import { withAuthRedirect }        from "../../hoc/withAuthRedirect";
-import { compose }                 from "redux";
+import { actions }          from "../../redux/dialogsReducer"; 
+import Dialogs              from "./Dialogs";
+import { connect }          from "react-redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { compose }          from "redux";
 
 let mapStateToProps = state => ({
   dialogsPage: state.dialogsPage,
@@ -11,6 +11,6 @@ let mapStateToProps = state => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { addMessageActionCreator }),
+  connect(mapStateToProps, { addMessageActionCreator: actions.addMessageActionCreator }),
   withAuthRedirect
 )(Dialogs);

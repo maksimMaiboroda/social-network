@@ -14,9 +14,9 @@ const initialState = {
   followingInProgress : [] as Array<number>
 };
 
-type InitialState = typeof initialState
+type InitialStateType = typeof initialState
 
-const usersReducer = (state = initialState, action: ActionsTypes): InitialState => {
+const usersReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case 'FOLLOW': {
       return {
@@ -61,7 +61,7 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialState 
 
 type ActionsTypes = InferActionsTypes<typeof actions>;
 
-const actions = {
+export const actions = {
     followSuccess: (userId: number) => ({
         type: 'FOLLOW',
         userId
