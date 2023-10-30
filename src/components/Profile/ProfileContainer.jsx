@@ -1,16 +1,13 @@
-import React from "react";
-import Profile from "./Profile";
-import { connect } from "react-redux";
-import {
-  getUserProfile,
-  getStatus,
-  updateStatus,
-  savePhoto,
-  saveProfile,
-  saveProfileDesc
-} from "../../redux/profileReducer";
+import React          from "react";
+import Profile        from "./Profile";
+import { connect }    from "react-redux";
 import { withRouter } from "react-router-dom";
-import { compose } from "redux";
+import { compose }    from "redux";
+import { 
+    actions, 
+    getUserProfile, 
+    getStatus 
+} from "../../redux/profileReducer";
 
 class ProfileContainer extends React.Component {
   refreshProfile = () => {
@@ -64,10 +61,10 @@ export default compose(
   connect(mapStateToProps, {
     getUserProfile,
     getStatus,
-    updateStatus,
-    savePhoto,
-    saveProfile,
-    saveProfileDesc
+    updateStatus: actions.updateStatus,
+    savePhoto: actions.savePhoto,
+    saveProfile: actions.saveProfile,
+    saveProfileDesc: actions.saveProfileDesc
   }),
   withRouter
 )(ProfileContainer);

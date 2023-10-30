@@ -1,6 +1,6 @@
-import { addPostActionCreator } from "../../../redux/profileReducer";
-import MyPosts                  from "./MyPosts";
-import { connect }              from "react-redux";
+import { actions } from "../../../redux/profileReducer";
+import MyPosts     from "./MyPosts";
+import { connect } from "react-redux";
 
 let mapStateToProps = state => {
   return {
@@ -8,6 +8,6 @@ let mapStateToProps = state => {
   };
 };
 
-export default  connect(mapStateToProps, { addPostActionCreator })(
+export default connect(mapStateToProps, { addPostActionCreator: actions.addPostActionCreator })(
   MyPosts
 );

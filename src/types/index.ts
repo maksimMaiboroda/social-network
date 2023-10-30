@@ -9,16 +9,16 @@ export interface Post {
     likesCount : number
 }
 
-export interface Dialog {
-    urlD     : number 
-    userAva  : string
-    userName : string
-}
+// export interface Dialog {
+//     urlD     : number 
+//     userAva  : string
+//     userName : string
+// }
 
-export interface Message {
-    id          : number 
-    messageText : string
-}
+// export interface Message {
+//     id          : number 
+//     messageText : string
+// }
 
 export interface Contacts {
     github    : string
