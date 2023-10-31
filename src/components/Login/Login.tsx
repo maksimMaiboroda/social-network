@@ -2,7 +2,7 @@ import React from "react";
 import LoginReduxForm from "./LoginForm/LoginForm";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/authReducer";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import classes from "./Login.module.css";
 import { AppStateType } from "../../redux/reduxStore";
 import { SubmitLoginType } from '../../types'
@@ -22,7 +22,7 @@ const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = ({ loginUser, 
     };
 
     if (isAuth) {
-        return <Redirect to={"/profile"} />;
+        return <Navigate to={"/profile"} replace />;
     }
 
     return (
