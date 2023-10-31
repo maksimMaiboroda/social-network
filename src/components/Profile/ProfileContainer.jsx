@@ -1,70 +1,57 @@
-import React          from "react";
-import Profile        from "./Profile";
-import { connect }    from "react-redux";
-import { withRouter } from "react-router-dom";
-import { compose }    from "redux";
-import { 
-    actions, 
-    getUserProfile, 
-    getStatus 
-} from "../../redux/profileReducer";
+import React from "react";
+import Profile from "./Profile";
+import { connect } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { actions, getUserProfile, getStatus } from "../../redux/profileReducer";
 
-class ProfileContainer extends React.Component {
-  refreshProfile = () => {
-    let userId = this.props.match.params.userId;
-    if (!userId) {
-      userId = this.props.autorizedUser;
-      if (!userId) {
-        this.props.history.push("/login");
-      }
-    }
-    this.props.getUserProfile(userId);
+const ProfileContainer = (props) => {
+    const navigate = useNavigate();
+    const { userId } = useParams();
 
-    this.props.getStatus(userId);
-  };
+    const refreshProfile = () => {
+        let currentUserId = userId;
+        if (!currentUserId) {
+            currentUserId = props.autorizedUser;
+            if (!currentUserId) {
+                navigate("/login");
+            }
+        }
+        props.getUserProfile(currentUserId);
+        props.getStatus(currentUserId);
+    };
 
-  componentDidMount() {
-    this.refreshProfile();
-  }
+    React.useEffect(() => {
+        refreshProfile();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [userId]);
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.match.params.userId !== prevProps.match.params.userId) {
-      this.refreshProfile();
-    }
-  }
-
-  render() {
     return (
-      <Profile
-        {...this.props}
-        editModeSaveProfileDesc={this.props.editModeSaveProfileDesc}
-        userId={this.props.match.params.userId}
-        isOwner={!this.props.match.params.userId}
-        profile={this.props.profile}
-        status={this.props.status}
-        updateStatus={this.props.updateStatus}
-        savePhoto={this.props.savePhoto}
-      />
+        <Profile
+            {...props}
+            editModeSaveProfileDesc={props.editModeSaveProfileDesc}
+            userId={userId}
+            isOwner={!userId}
+            profile={props.profile}
+            status={props.status}
+            updateStatus={props.updateStatus}
+            savePhoto={props.savePhoto}
+        />
     );
-  }
-}
+};
 
-let mapStateToProps = state => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status,
-  autorizedUser: state.auth.userId,
-  isAuth: state.auth.isAuth,
-  editModeSaveProfileDesc: state.profilePage.editModeSaveProfileDesc
+let mapStateToProps = (state) => ({
+    profile: state.profilePage.profile,
+    status: state.profilePage.status,
+    autorizedUser: state.auth.userId,
+    isAuth: state.auth.isAuth,
+    editModeSaveProfileDesc: state.profilePage.editModeSaveProfileDesc,
 });
 
-export default compose(
-  connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     getUserProfile,
     getStatus,
     updateStatus: actions.updateStatus,
     savePhoto: actions.savePhoto,
     saveProfile: actions.saveProfile,
-    saveProfileDesc: actions.saveProfileDesc
-  }),
-  withRouter
-)(ProfileContainer);
+    saveProfileDesc: actions.saveProfileDesc,
+})(ProfileContainer);
