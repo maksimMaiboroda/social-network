@@ -5,7 +5,7 @@
     "homepage": "http://maksimMaiboroda.github.io/my-prpject-",
     "dependencies": {
         "@types/jest": "^27.0.1",
-        "@types/node": "^16.7.6",
+        "@types/node": "^20.0.0",
         "@types/react": "^17.0.19",
         "@types/react-dom": "^17.0.9",
         "@types/react-router-dom": "^5.1.8",
